@@ -1,0 +1,64 @@
+/* ==========================================================================
+Typography
+========================================================================== */
+/* line 33, ../scss/partials/typography.scss */
+p {
+  font-size: 15px;
+  line-height: 27px;
+  padding-bottom: 15px;
+  color: #2f3b44;
+}
+
+/* line 42, ../scss/partials/typography.scss */
+h1 {
+  font-size: 45px;
+  font-weight: 300;
+  line-height: 68px;
+}
+
+/* line 48, ../scss/partials/typography.scss */
+h2 {
+  font-size: 36px;
+  font-weight: 300;
+  color: #fafafa;
+}
+
+/* line 55, ../scss/partials/typography.scss */
+h3 {
+  font-size: 20px;
+  line-height: 32px;
+  margin-bottom: 20px;
+  color: #8A9097;
+}
+
+/* line 64, ../scss/partials/typography.scss */
+h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 7px 0 65px 60px;
+  text-transform: uppercase;
+}
+/* line 72, ../scss/partials/typography.scss */
+h4:after {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-top: 15px;
+  content: '';
+  background-color: #ee394e;
+}
+
+/* line 85, ../scss/partials/typography.scss */
+h5 {
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #2f3b44;
+}
+
+/* line 96, ../scss/partials/typography.scss */
+.bold-italic {
+  font-weight: 600;
+  font-style: italic;
+}
