@@ -16,7 +16,7 @@
 */
 ?>
 
-<div class="container-fluid fixed">
+<div class="container-fluid">
 
 	<div class="row d-block">
 		<div class="header-nav-wrapper">
@@ -75,7 +75,7 @@
 							        	$parentID = $menuitem->ID; // Se guarda ID para comparar luego con subitems.
 							        	// Si la siguiente página no es submenú, entonces la página actual se muestra en el menú como item único. Si SHOW_SUBMENUS está desactivado, entonces la página con submenú se muestra como si no lo tuviera.
 
-							        	if( array_key_exists($c+1, $menuItems) && ($menuItems[$c+1]->menu_item_parent == 0 || !SHOW_SUBMENUS) ): ?>
+							        	if( !array_key_exists($c+1, $menuItems) || ( array_key_exists($c+1, $menuItems) && $menuItems[$c+1]->menu_item_parent == 0 ) || !SHOW_SUBMENUS ): ?>
 
 											<li>
 										        <a href="<?php echo $href ?>"<?php echo $target ?>>
@@ -106,7 +106,7 @@
 						            	<a class="dropdown-item" href="<?php echo $href ?>"<?php echo $target ?>>
 						            		<?php echo $menuitem->title ?></a> <?php
 
-										if ( $menuItems[$c+1]->menu_item_parent != $parentID && $hasSubmenu ):
+										if ( ( array_key_exists($c+1, $menuItems) && $menuItems[$c+1]->menu_item_parent != $parentID ) && $hasSubmenu ):
 
 											$hasSubmenu = false; ?>
 						        			</div> <?php

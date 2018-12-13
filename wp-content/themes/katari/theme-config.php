@@ -27,7 +27,7 @@ const DEBUG_MODE = FALSE;
 // Muestra u oculta sub-páginas del menú.
 const SHOW_SUBPAGES = FALSE;
 // Muestra u oculta sub-menús en el menú principal.
-const SHOW_SUBMENUS = TRUE;
+const SHOW_SUBMENUS = FALSE;
 // Determina si Slider cambia automáticamente de imágen.
 const SLIDER_AUTOPLAY = TRUE;
 // Determina en cuánto tiempo cambia la imágen del Slider.
