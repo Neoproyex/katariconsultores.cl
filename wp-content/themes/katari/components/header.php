@@ -34,7 +34,6 @@
 ?>
 
 <header class="hero" id="<?php echo $home_page? $home_page->post_name : 'top' // 'top' puede ser reemplazado. ?>">
-
 	<?php
 
 		// Inserta opciones en el Slider de 'inicio':
@@ -88,6 +87,15 @@
 			$scrolldown_slug = ''; // slug vacío
 
 	?>
+
+	<div class="social">
+
+		<ul>
+			<li> <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a> </li>
+			<li> <a href="#" target="_blank"><i class="fa fa-tumblr"></i></a> </li>
+		</ul>
+
+	</div>
 
 	<div class="mouse-container">
 		<a href="#<?php echo $scrolldown_slug ?>">

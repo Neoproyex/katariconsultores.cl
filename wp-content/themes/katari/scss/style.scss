@@ -23,8 +23,8 @@
 @import 'compass';
 @import 'compass/reset';
 
-@import 'partials/loader';
 @import 'partials/typography';
+@import 'partials/loader';
 @import 'partials/buttons';
 @import 'partials/colors';
 @import 'partials/layout';
@@ -260,12 +260,8 @@ Main Nav
 
         ul li {
             font-size: $font-size-nav;
-
             display: inline-block;
-
             padding: 10px 15px;
-
-            letter-spacing: 1px;
             text-transform: uppercase;
         
             //border-right: solid 1px $porcelain; original
@@ -655,6 +651,40 @@ header.hero {
         opacity: 0;
     }
 }
+
+div.social {
+
+    position: absolute;
+    top: $corner-dist;
+    right: $corner-dist;
+
+    width: auto;
+    height: 30px;
+
+    li {
+        float: left;
+
+        &:first-child a { border-left: 1px solid $white; }
+
+        a {
+            display: block;
+            color: $white;
+            border-width: 1px 1px 1px 0;
+            border-color: $white;
+            border-style: solid;
+
+            width: $size;
+            height: $size;
+            line-height: $size;
+
+            text-align: center;
+            vertical-align: middle;
+            
+            &:hover { background: $predominant; color: $white; border-color: $predominant; }
+        }
+    }
+}
+
 div.mouse-container
 {
     position: absolute;
@@ -1223,7 +1253,7 @@ Responsive Media Queries
 @media screen and (max-width:640px) {
      header.hero {
         .row {
-            .hero-intro-text { border-top: none; padding-top: 0; }
+            .hero-intro-text { border-top: none; padding-top: 10px; }
         }
     }
 
@@ -1250,7 +1280,7 @@ Responsive Media Queries
     }
     header.hero h1
     {
-        font-size: 35px;
+        font-size: 40px;
         line-height: 40px;
     }
     .has-padding
@@ -1293,7 +1323,7 @@ Responsive Media Queries
     }
     header.hero h1
     {
-        font-size: 30px;
+        font-size: 40px;
     }
     .navicon
     {

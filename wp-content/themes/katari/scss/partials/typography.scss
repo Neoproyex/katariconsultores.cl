@@ -17,7 +17,7 @@ $font-size-h4: 15px;
 $font-size-h5: 13px; // Other
 $font-size-base: 15px;
 $font-size-footer: 14px;
-$font-size-nav: 13px;
+$font-size-nav: 14px;
 $font-size-search-input: 13px;
 $font-size-tag: 13px;
 $font-size-smalltext: 13px;
@@ -29,6 +29,12 @@ $line-height-article-header: 30px; // Styles
 
 // Others
 $text-shadow: 1px 0px 0px #000;
+
+/*  social icons size  */
+        $size: 30px;
+        $corner-dist: 30px;
+/* ------------------- */
+
 /* ==========================================================================
 Typography
 ========================================================================== */
