@@ -24,11 +24,11 @@
 
 			<div class="row justify-content-md-center">
 
-				<div class="col-md-auto col-sm-12 hero-intro-title">
+				<div class="col-md-auto col-12 hero-intro-title">
 					<h1 class="wp1"> <?php echo $atts['texto1'] ?> </h1>
 				</div>
 
-				<div class="col-md-auto col-sm-12 hero-intro-text wp3">
+				<div class="col-md-auto col-12 hero-intro-text wp3">
 					<p> <?php echo $atts['texto2'] ?> </p>
 				</div>
 

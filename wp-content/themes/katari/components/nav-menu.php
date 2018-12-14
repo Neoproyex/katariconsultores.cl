@@ -140,7 +140,7 @@
 								// Si está activada opción de multilenguaje y si las funciones de Polylang existen, se carga selector de idiomas.
 								if( function_exists('pll_the_languages') ): ?>
 
-									<a> <?php echo t__('IDIOMA') ?> /</a> <?php
+									<a class="idioma"><?php echo t__('IDIOMA') ?>/</a><?php
 									pll_the_languages( array('dropdown' => 1, 'display_names_as' => 'slug') );
 									
 								endif;
