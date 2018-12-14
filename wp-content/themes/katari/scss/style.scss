@@ -12,8 +12,12 @@
 
 
 /* Google Fonts */
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic);
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+/* Adobe Fonts */
+@import url("https://use.typekit.net/ytr6wjw.css");
 
 /* Imports */
 @import 'compass';
@@ -47,7 +51,7 @@ body
     margin: 0;
     padding: 0;
 
-    color: $slate;
+    color: $base;
 
     -webkit-text-size-adjust: 100%;
     /*fix for iOS*/
@@ -74,7 +78,7 @@ a
     -webkit-transition-duration: 200ms;
             transition-duration: 200ms;
 
-    color: $teal;
+    color: $predominant;
 }
 a:hover
 {
@@ -156,17 +160,18 @@ textarea
 {
     display: block;
 
-    width: 12px;
-    height: 12px;
-    margin: 0 4px 20px;
+    width: 5px;
+    height: 5px;
+    margin: 0 5px 5px;
 
     opacity: 1;
-    border: 2px solid white;
-    background: transparent;
+    //border: 2px solid white;
+    background: white;
 }
 .flickity-page-dots .dot.is-selected
 {
-    background: white;
+    background: #29ABE2;
+    border: none;
 }
 /* ==========================================================================
 Waypoints
@@ -222,21 +227,18 @@ Main Nav
 .header-nav-wrapper
 {
     position: relative;
-
-    background-color: $slate; //default $white;
-    border-bottom: solid 5px $teal; //$white, $teal or $slate for none
+    background-color: $base; //default $white;
+    border-bottom: solid 5px $predominant; //$white, $predominant or $base for none
 
     .logo
     {
         display: inline-block;
 
         width: 340px;
-        padding: 30px 0;
+        padding: 30px 0; // No remover.
 
         text-align: center;
-
-        //border-bottom: solid 5px $teal;
-        background-color: $slate;
+        background-color: $base;
     }
     .primary-nav-wrapper
     {
@@ -261,32 +263,25 @@ Main Nav
 
             display: inline-block;
 
-            padding: 10px 20px;
+            padding: 10px 15px;
 
             letter-spacing: 1px;
             text-transform: uppercase;
         
             //border-right: solid 1px $porcelain; original
-            border-right: solid 1px #505c66;
+            
+            &:last-child { border-right: none; }
 
-            &:last-child
-            {
-                border-right: none;
-            }
-            a
-            {
-                font-weight: $bold;
-
+            a {
                 position: relative;
-
                 padding-bottom: 10px;
-
                 text-decoration: none;
+                text-shadow: $text-shadow;
 
-                color: $white; //original $slate
+                color: $white; //original $base
                 &:hover
                 {
-                    color: $teal;
+                    color: $predominant;
                 }
                 &:before
                 {
@@ -307,7 +302,7 @@ Main Nav
                             transform: scaleX(0);
                     //END
 
-                    background-color: $teal;
+                    background-color: $predominant;
                 }
                 &:hover:before
                 {
@@ -318,13 +313,13 @@ Main Nav
                 }
                 &.menu-active
                 {
-                    color: $teal;
+                    color: $predominant;
                 }
             }
         }
 
         div.dropdown-menu {
-            background-color: $slate;
+            background-color: $base;
             text-align: center;
             padding: 20px;
             font-size: $font-size-nav;
@@ -351,8 +346,6 @@ Main Nav
 
     padding: 35px 30px;
 
-    //background-color: $slate;
-
     ul.secondary-nav
     {
         li
@@ -361,66 +354,30 @@ Main Nav
 
             letter-spacing: 1px;
             text-transform: uppercase;
+
             &.language
             {
                 position: relative;
-
                 padding: 10px 20px 10px 0;
 
-                border-right: solid 1px #505c66;
-                a
-                {
+                //border-right: solid 1px #505c66;
+
+                a {
                     position: relative;
+                    color: $white;
 
                     padding-bottom: 10px;
-
                     text-decoration: none;
-                    &:before
-                    {
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-
-                        visibility: hidden;
-
-                        width: 100%;
-                        height: 2px;
-
-                        content: '';
-                        -webkit-transition: all .3s ease-in-out 0s;
-                                transition: all .3s ease-in-out 0s;
-                        -webkit-transform: scaleX(0);
-                                transform: scaleX(0);
-
-                        background-color: $teal;
-                    }
-                    &:hover:before
-                    {
-                        visibility: visible;
-
-                        -webkit-transform: scaleX(1);
-                                transform: scaleX(1);
-                    }
                 }
-                &:after
-                {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
+                
 
-                    height: 34px;
-
-                    content: ' ';
-
-                    border-right: 1px solid #323940;
-                }
-                select#lang_choice_1
-                {
+                select#lang_choice_1 {
                     font-size: $font-size-search-input;
 
                     //width: 100px;
-                    margin-left: 25px;
-                    padding-bottom: 9px;
+                    margin-left: 0px;
+                    padding-bottom: 10px;
+                    text-transform: uppercase;
 
                     -webkit-transition: all 300ms;
                             transition: all 300ms;
@@ -429,8 +386,8 @@ Main Nav
 
                     color: $white;
                     border: none;
-                    border-bottom: solid 2px $teal;
-                    background: url('img/dd-arrow.png') no-repeat;
+                    border-bottom: solid 2px $predominant;
+                    background: none;
                     background-color: none;
                     background-position: 280px 5px;
 
@@ -443,13 +400,13 @@ Main Nav
                     }
                 }
             }
-            &.search
-            {
-                margin-left: 20px;
-                a
-                {
-                    font-size: 16px;
 
+            &.search {
+                display: none;
+                margin-left: 20px;
+
+                a {
+                    font-size: 16px;
                     color: $white;
                 }
             }
@@ -479,7 +436,7 @@ Main Nav
             transition: all 300ms;
 
     opacity: 0;
-    background-color: $slate;
+    background-color: $base;
     ul.search
     {
         .is-selected
@@ -511,8 +468,8 @@ Main Nav
 
                 color: $white;
                 border: none;
-                border-bottom: solid 2px $teal;
-                background-color: $slate;
+                border-bottom: solid 2px $predominant;
+                background-color: $base;
             }
         }
     }
@@ -522,6 +479,7 @@ Main Nav
     visibility: visible;
 
     opacity: 1;
+
 }
 .nav-toggle
 {
@@ -608,68 +566,59 @@ Main Nav
     -webkit-transition: all 300ms ease-in-out;
             transition: all 300ms ease-in-out;
 
-    background-color: $slate;
+    background-color: $base;
 }
 .fixed
 {
     position: fixed;
     z-index: 999;
 }
+
 /* ==========================================================================
 Header
 ========================================================================== */
 
 $header-height: calc(100vh - 8.2em + 20px);     //header.hero & .hero-bg height
 
-header.hero
-{
+header.hero {
     position: relative;
-
     display: table;
 
     width: 100%;
     height: $header-height;
     max-height: 760px;
-    padding: 0;
-    .hero-bg
-    {
+
+    .hero-bg {
         display: table-cell;
         height: $header-height;
-
         vertical-align: middle;
-        .hero-intro-text
-        {
-            margin-top: 60px;
-            padding-top: 25px;
 
-            text-align: center;
+        .hero-intro-title, .hero-intro-text { padding: 0; }
 
-            border-top: solid 1px rgba($white, .25);
-            p
-            {
-                font-weight: $light;
+        $padding-between: 30px;
 
-                margin: 0;
+        .hero-intro-title {
+            
+            padding-right: $padding-between;
+            margin: auto 0 auto 0;
+
+            h1 { color: $white; text-transform: uppercase; text-shadow: $text-shadow; }
+        }
+
+        .hero-intro-text {
+            border-left: 1px solid white;
+            padding-left: $padding-between;
+            width: auto;
+            max-width: 50%;
+            margin: auto 0 auto 0;
+
+            p {
+                //font-weight: $light;
                 padding: 0;
-
                 color: $white;
+                text-shadow: $text-shadow;
             }
         }
-    }
-    h1
-    {
-        margin-bottom: 40px;
-
-        color: $white;
-    }
-    h3
-    {
-        font-weight: $light;
-
-        margin-bottom: 45px;
-        padding: 0 25%;
-
-        color: $white;
     }
 }
 @-webkit-keyframes scroll-inner
@@ -795,7 +744,7 @@ footer
                 color: $white;
                 &:hover
                 {
-                    color: $teal;
+                    color: $predominant;
                 }
             }
         }
@@ -974,15 +923,17 @@ Responsive Media Queries
         height: 100%;
 
         opacity: 0;
-        background-color: $slate;
+        background-color: $base;
     }
 
     .navicon
     {
         visibility: visible;
+        background: $predominant;
+        
     }
     .header-nav-wrapper nav
-    {
+    {   
         width: 100%;
         padding: 100px 0 0;
 
@@ -1046,7 +997,7 @@ Responsive Media Queries
     }
     .secondary-nav-wrapper ul li.language a:hover
     {
-        color: $teal;
+        color: $predominant;
     }
     .secondary-nav-wrapper ul.secondary-nav li.language
     {
@@ -1066,6 +1017,8 @@ Responsive Media Queries
     }
 }
 @media screen and (max-width:991px) {
+    .header-nav-wrapper { overflow: hidden; }
+
     .collective .video-player
     {
         margin: 25px 0 50px;
@@ -1108,8 +1061,17 @@ Responsive Media Queries
         margin-top: 50px;
     }
 }
-@media screen and (max-width:768px)
-{
+@media screen and (max-width:768px) {
+    header.hero {
+        .row {
+            justify-content: center;
+
+            .hero-intro-title { border-right: none !important; text-align: center; }
+            .hero-intro-text { display:block; padding-left: 0 !important; border: 2px solid white;
+                p { }
+            }
+        }
+    }
     .stats .stats-container
     {
         width: 210px;
@@ -1212,8 +1174,8 @@ Responsive Media Queries
     {
         display: inline-block;
 
-        width: 12px;
-        height: 12px;
+        width: 5px;
+        height: 5px;
         margin: 0 4px;
 
         opacity: 1;
@@ -1284,8 +1246,8 @@ Responsive Media Queries
 {
     .header-nav-wrapper
     {
-        border-bottom: solid 5px #7ae2de;
-        background-color: $slate;
+        border-bottom: solid 5px $predominant;
+        background-color: $base;
     }
     .header-nav-wrapper .logo
     {
@@ -1295,7 +1257,7 @@ Responsive Media Queries
     {
         padding: 52px 35px;
 
-        background-color: transparent;
+        background-color: $predominant;
     }
     .header-nav-wrapper .logo
     {

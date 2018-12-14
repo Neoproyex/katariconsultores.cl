@@ -17,7 +17,7 @@
 			<div class="col-md-9">
 				<?php
 					// Muestra el contenido obtenido mediante ID.
-					echo $page->post_content;
+					echo apply_filters( 'the_content', $page->post_content );
 				?>
 			</div>
 		</div>

@@ -57,7 +57,7 @@
 				</div>
 
 				<ul class="footer-secondary-nav">
-					<li><p> <?php echo t__('Derechos reservados') ?>, <a href="#url"><em>Katari &reg;.</em></a></p></li>
+					<li><p> <?php echo t__('Derechos reservados') ?>, <a><em>Katari Consultores &reg;.</em></a></p></li>
 				</ul>
 			</div>
 			<!-- end FOOTER MENU -->

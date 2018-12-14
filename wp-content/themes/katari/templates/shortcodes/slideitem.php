@@ -22,21 +22,17 @@
 	<div class="hero-bg">
 		<div class="container">
 
-			<div class="row">
-				<div class="col-md-12 text-center">
+			<div class="row justify-content-md-center">
+
+				<div class="col-md-auto col-sm-12 hero-intro-title">
 					<h1 class="wp1"> <?php echo $atts['texto1'] ?> </h1>
-					<a href="<?php echo $atts['enlace'] ?>" class="btn primary wp2"> <?php echo $atts['boton'] ?> </a>
 				</div>
-			</div>
 
-		<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
-			<div class="row d-flex justify-content-center">
-				<div class="col-md-8 col-md-offset-2 hero-intro-text wp3">
-					<p><span class="bold italic"> <?php echo $atts['texto2'] ?> </span></p>
+				<div class="col-md-auto col-sm-12 hero-intro-text wp3">
+					<p> <?php echo $atts['texto2'] ?> </p>
 				</div>
-			</div>
 
+			</div>
 		</div>
 	</div>
 </div>

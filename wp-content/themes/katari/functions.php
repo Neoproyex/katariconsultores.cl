@@ -66,6 +66,7 @@ if( function_exists('pll_register_string') ) {
 	/*	Registramos texto adicional del tema. Se pueden reemplazar por funciones
 		propias del plugin traductor a usar.
 	*/
+	pll_register_string( 'Idioma', 'IDIOMA', 'Katari' );
 	pll_register_string( 'Marca', 'Lema, marca o texto.', 'Katari' );
 	pll_register_string( 'Derechos', 'Derechos reservados', 'Katari' );
 	pll_register_string( 'Compartir', 'Compartir', 'Katari' );
