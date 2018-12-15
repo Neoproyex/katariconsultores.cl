@@ -1,7 +1,10 @@
 // Typography partial
 @import 'colors'; // Fonts
 $sans-serif: Raleway, Verdana, Arial, sans-serif;
-$serif: Montserrat, Georgia, 'Times New Roman', serif; // Weights
+$h1-family: Raleway,'Open Sans', Raleway, Verdana, sans-serif;
+$h2-family: Raleway,myriad-pro, Raleway, Verdana, sans-serif;
+$h3-family: Raleway,myriad-pro, Raleway, Verdana, sans-serif;
+$serif: Raleway,myriad-pro, Raleway, Verdana, sans-serif;
 $light: 300;
 $normal: 400;
 $semibold: 500;
@@ -10,9 +13,10 @@ $strong: 700; // Styles
 $italic: italic; // Sizes
 
 // Headings
-$font-size-h1: 45px;
-$font-size-h2: 36px;
-$font-size-h3: 20px;
+$serif-size: 14px;
+$font-size-h1: 30px;
+$font-size-h2: 18px;
+$font-size-h3: 16px;
 $font-size-h4: 15px;
 $font-size-h5: 13px; // Other
 $font-size-base: 15px;

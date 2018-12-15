@@ -44,6 +44,28 @@ function slideritem_shortcode( $atts, $content = '' ) {
 	return ob_get_clean();
 }
 
+// [view title="" sub="" trans=""] content [/view]
+function view_shortcode( $atts, $content = "" ) {
+	// Atts:
+	$atts = shortcode_atts(
+		array(
+			'title'=> 'Título',
+			'sub'	=> 'Subtítulo',
+			'trans'	=> '(Subtitle)'
+		),
+		$atts,
+		''
+	);
+
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/view.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
 // End FUNCTIONS ..................................................................
 
 
@@ -56,6 +78,7 @@ if( function_exists('register_nav_menu') )
 
 // Registramos shortcode 'slideritem'.
 add_shortcode( 'slideritem', 'slideritem_shortcode' );
+add_shortcode( 'view', 'view_shortcode' );
 
 
 /*	Sección para registrar cadenas de tema "adicionales" para traducción

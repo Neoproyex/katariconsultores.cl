@@ -602,7 +602,7 @@ header.hero {
             padding-right: $padding-between;
             margin: auto 0 auto 0;
 
-            h1 { color: $white; text-transform: uppercase; text-shadow: $text-shadow; }
+            h1 { font-size: 45px; color: $white; text-transform: uppercase; text-shadow: $text-shadow; }
         }
 
         .hero-intro-text {
@@ -680,7 +680,7 @@ div.social {
             text-align: center;
             vertical-align: middle;
             
-            &:hover { background: $predominant; color: $white; border-color: $predominant; }
+            &:hover { background: $white; color: black; border-color: $white; }
         }
     }
 }
@@ -734,23 +734,39 @@ div.mouse
 /* ==========================================================================
 Pages
 ========================================================================== */
-/*
-section {
-    .wp-page {
-        background-color: ;
-        color: ; // alternate default: #F4F6F9
 
-        h1, h2, h3, h4 { color: ; }
+div.title { border: 1px solid red;
+    h1 {
+        font-family: $h1-family; border: 1px solid blue;
+        font-size: $font-size-h1;
+        text-align: center;
+        color: $base;
     }
 
-    .wp-page.alternate-bg {
-        background-color: ;
-        color: ;
+    h2 {
+        font-family: $h2-family;
+        font-size: $font-size-h2;
+        color: $predominant;
+    }
 
-        h1, h2, h3, h4 { color: ; }
+    h3 {
+        font-family: $h3-family;
+        font-size: $font-size-h3;
+    }
+
+    h2, h3 { border: 1px solid green; } .col { border: 1px solid pink;}
+
+    border-bottom: 1px solid #CCC;
+}
+
+div.content {
+    a, p {
+        font-family: $serif;
+        font-size: $serif-size;
+        color: $serif-color;
     }
 }
-*/
+
 /* ==========================================================================
 Footer
 ========================================================================== */

@@ -1,7 +1,9 @@
 // Layout variables partial
 @import "colors";
-$section-padding-regular: 125px 0;
+
+$section-padding-regular: 40px 0;
 $section-padding-tall: 160px 0;
+
 .has-padding {
     padding: $section-padding-regular;
 }
