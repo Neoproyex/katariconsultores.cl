@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    var fixed_menu = false
+
     /***************** Share Dropdown ******************/
 
     $("li a.share-trigger").on("click", function() {
@@ -22,11 +24,37 @@ $(document).ready(function() {
         $(this).addClass("is-selected");
     });
 
-    $('.search-wrapper input').keypress(function(e) {
+    /*$('.search-wrapper input').keypress(function(e) {
         if (e.which === 13) { //Enter key pressed
             window.alert("Ready for implementation.");
         }
-    });
+    });*/
+
+
+    /***************** Fixed menu ******************/
+
+    if( fixed_menu ) {
+
+        var menu_height = $('.header-nav-wrapper').outerHeight( true )
+
+        $('.container-fluid').waypoint(function() {
+            menu_height = $('.header-nav-wrapper').outerHeight( true )
+            var header_height = $('.hero').outerHeight( true )
+
+            if ( $(window).scrollTop() >= header_height ) {
+                $('.container-fluid').addClass('fixed-menu')
+                $('.wp-page').first().css('margin-top', menu_height + 'px')
+            } else {
+                $('.container-fluid').removeClass('fixed-menu')
+                $('.wp-page').first().css('margin-top', '0px')
+            }
+        });
+    }
+
+
+    /* OFFSET SCROLLING --------------------------------------*/
+    var offset_scrolling = fixed_menu? menu_height : 0
+    /* -----------------------------------------------------*/
 
 
     /***************** Smooth Scroll ******************/
@@ -38,7 +66,7 @@ $(document).ready(function() {
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
                 $('html,body').animate({
-                    scrollTop: target.offset().top
+                    scrollTop: target.offset().top - offset_scrolling
                 }, 800);
 
                 var $parent = $(this).parent().parent();
@@ -86,50 +114,73 @@ $(document).ready(function() {
         offset: '95%'
     });
 
-    // Menu highlight waypoints ------------------------------------
 
-    function doMenuHighlight ( objetive ) {
-        let objetiveID = objetive.element.getAttribute( 'id' )
-        let menuItemSelector = `a[href="#${objetiveID}"]`
-        let $menuItem = $(menuItemSelector, '.primary-nav')
+    if( fixed_menu ) {
 
-        if ( !$menuItem.length ) {
-            menuItemSelector = `a[name="${objetiveID}"]`
-            $menuItem = $(menuItemSelector, '.primary-nav')
+        // Menu highlight waypoints ------------------------------------
+
+        function doMenuHighlight ( objetive ) {
+            let objetiveID = objetive.element.getAttribute( 'id' )
+            let menuItemSelector = `a[href="#${objetiveID}"]`
+            let $menuItem = $(menuItemSelector, '.primary-nav')
+
+            if ( !$menuItem.length ) {
+                menuItemSelector = `a[name="${objetiveID}"]`
+                $menuItem = $(menuItemSelector, '.primary-nav')
+            }
+
+            $('a.menu-active', '.primary-nav').removeClass( 'menu-active' )
+
+            if ( $menuItem.hasClass('dropdown-item') ) {
+                $menuParentItem = $menuItem.parent().prev()
+                
+                if ( !$menuParentItem.hasClass('menu-active') )
+                    $menuParentItem.addClass( 'menu-active' )
+            }
+
+            $menuItem.toggleClass( 'menu-active' )
         }
 
-        $('a.menu-active', '.primary-nav').removeClass( 'menu-active' )
+         // Añade waypoint para destacar página enfocada en menú.
 
-        if ( $menuItem.hasClass('dropdown-item') ) {
-            $menuParentItem = $menuItem.parent().prev()
-            
-            if ( !$menuParentItem.hasClass('menu-active') )
-                $menuParentItem.addClass( 'menu-active' )
-        }
+        $('section.wp-page').waypoint(
+            function ( direction ) {
+                if( direction == 'down' )
+                    doMenuHighlight( this )
+            },
 
-        $menuItem.toggleClass( 'menu-active' )
-    }
+            { offset: offset_scrolling }
+        )
 
-    // Añade waypoint para destacar página enfocada en menú.
+        $('header.hero').waypoint(
+            function ( direction ) {
+                if( direction == 'down' )
+                    doMenuHighlight( this )
+            }
+        )
 
-    $('section.wp-page, header.hero').waypoint(
-        function ( direction ) {
-            if( direction == 'down' )
-                doMenuHighlight( this )
-        }
-    )
-
-    /*  Corrige margen de error de 1px cuando se hace autoscroll hacia arriba.
+        /*  Corrige margen de error de 1px cuando se hace autoscroll hacia arriba.
         No se implementa ajuste en función scrollTo porque borde de 1px de diferencia entre secciones afecta la vista, entonces añadimos waypoint escuchando a -1px del elemento en cuestión. */
 
-    $('section.wp-page, header.hero').waypoint(
-        function ( direction ) {
-            if( direction == 'up' )
-                doMenuHighlight( this )
-        },
-        
-        { offset: '-1' }
-    )
+        $('section.wp-page').waypoint(
+            function ( direction ) {
+                if( direction == 'up' )
+                    doMenuHighlight( this )
+            },
+            
+            { offset: offset_scrolling - 1 }
+        )
+
+        $('header.hero').waypoint(
+            function ( direction ) {
+                if( direction == 'up' )
+                    doMenuHighlight( this )
+            },
+            
+            { offset: -1 }
+        )
+    }
+
 
     /***************** Overlay touch/hover events ******************/
 

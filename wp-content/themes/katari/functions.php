@@ -100,4 +100,9 @@ if( function_exists('pll_register_string') ) {
 
 //End REGISTER .....................................................
 
+
+//Eliminar párrafos automáticos por defecto.
+//remove_filter('the_content', 'wpautop');
+//remove_filter( 'the_excerpt', 'wpautop' );
+
 ?>

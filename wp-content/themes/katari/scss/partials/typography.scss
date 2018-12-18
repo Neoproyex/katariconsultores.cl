@@ -14,9 +14,9 @@ $italic: italic; // Sizes
 
 // Headings
 $serif-size: 14px;
-$font-size-h1: 30px;
-$font-size-h2: 18px;
-$font-size-h3: 16px;
+$font-size-h1: 24px;
+$font-size-h2: 14px;
+$font-size-h3: 14px;
 $font-size-h4: 15px;
 $font-size-h5: 13px; // Other
 $font-size-base: 15px;
@@ -47,7 +47,7 @@ p
     font-size: $font-size-base;
     line-height: $base-line-height;
 
-    padding-bottom: 15px;
+    
 
     color: $base;
 }
@@ -69,8 +69,6 @@ h3
     font-size: $font-size-h3;
     line-height: 32px;
 
-    margin-bottom: 20px;
-
     color: $dark-grey;
 }
 h4
@@ -81,18 +79,6 @@ h4
     margin: 7px 0 65px 60px;
 
     text-transform: uppercase;
-    &:after
-    {
-        display: block;
-
-        width: 30px;
-        height: 2px;
-        margin-top: 15px;
-
-        content: '';
-
-        background-color: $predominant;
-    }
 }
 h5
 {

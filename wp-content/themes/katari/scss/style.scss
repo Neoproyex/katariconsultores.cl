@@ -217,9 +217,18 @@ Waypoints
 {
     visibility: visible;
 }
+
 /* ==========================================================================
 Main Nav
 ========================================================================== */
+
+.fixed-menu { // add's to .container-fluid
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    //background-color: #ccc;
+}
+
 .container-fluid {
     @include box-shadow(0px -23px 90px -17px rgba(0,0,0,0.25));
 }
@@ -616,6 +625,7 @@ header.hero {
                 //font-weight: $light;
                 padding: 0;
                 color: $white;
+                line-height: $serif-size + 5px;
                 text-shadow: $text-shadow;
             }
         }
@@ -735,36 +745,66 @@ div.mouse
 Pages
 ========================================================================== */
 
-div.title { border: 1px solid red;
-    h1 {
-        font-family: $h1-family; border: 1px solid blue;
-        font-size: $font-size-h1;
-        text-align: center;
-        color: $base;
+section.wp-page {
+    div.container { margin: 0; max-width: 100%; }
+}
+
+div.title-container {
+    .title {
+        display: flex;
+        align-items: center;
+
+        h1 {
+            font-family: $h1-family;
+            font-size: $font-size-h1;
+            text-align: center;
+            color: $base;
+            line-height: $font-size-h1;
+            
+            position: relative;
+            margin: 0 auto 0 auto;
+            margin-top: -10px;
+
+            &:after {
+                content: '';
+
+                display: block;
+                width: 35px;
+                height: 2px;
+                margin-top: 4px;
+
+                background-color: #0000FF;
+            }
+        }
     }
 
     h2 {
         font-family: $h2-family;
         font-size: $font-size-h2;
+        font-weight: bold;
         color: $predominant;
     }
 
     h3 {
         font-family: $h3-family;
         font-size: $font-size-h3;
+        line-height: $font-size-h3 + 9px; // +offset
     }
-
-    h2, h3 { border: 1px solid green; } .col { border: 1px solid pink;}
-
+    
+    padding-bottom: $section-padding - 9px; // -offset -lineseparator
+    margin-bottom: $section-padding;
     border-bottom: 1px solid #CCC;
 }
 
-div.content {
+div.content-container {
     a, p {
         font-family: $serif;
         font-size: $serif-size;
         color: $serif-color;
+        line-height: $serif-size + 5px;
     }
+
+    .content { padding-right: 160px; }
 }
 
 /* ==========================================================================
@@ -948,8 +988,11 @@ Share component
 Responsive Media Queries
 ========================================================================== */
 
-@media screen and (max-width: 1200px)
-{
+@media screen and (max-width: 1200px) {
+    div.content-container {
+        .content { padding-right: 120px; }
+    }
+
     .header-nav-wrapper nav
     {
         margin-right: 10px;
@@ -968,8 +1011,13 @@ Responsive Media Queries
 /* --------------------------------------------------------------------- */
 
 
-@media screen and (max-width: 1024px) {   
+@media screen and (max-width: 1024px) {
+    .header-nav-wrapper { overflow: hidden; }
     .dropdown-menu { display: none !important; }
+
+    div.content-container {
+        .content { padding-right: 90px; }
+    }
 
     .primary-nav-wrapper
     {
@@ -1085,8 +1133,6 @@ Responsive Media Queries
     }
 }
 @media screen and (max-width:991px) {
-    .header-nav-wrapper { overflow: hidden; }
-
     .collective .video-player
     {
         margin: 25px 0 50px;
@@ -1148,6 +1194,23 @@ Responsive Media Queries
                 margin-top: $space-between;
                 padding-top: $space-between;
             }
+        }
+    }
+
+    div.content-container {
+        .content { padding-right: 90px; }
+    }
+
+    div.title-container {
+        .title {
+            display: block;
+
+            h1 {
+                text-align: left;
+                &:after { display: none; }
+            }
+
+            margin-bottom: 5px; //20px
         }
     }
 
@@ -1267,6 +1330,10 @@ Responsive Media Queries
     }
 }
 @media screen and (max-width:640px) {
+    div.content-container {
+        .content { padding-right: 0px; }
+    }
+
      header.hero {
         .row {
             .hero-intro-text { border-top: none; padding-top: 10px; }
