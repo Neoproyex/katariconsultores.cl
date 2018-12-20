@@ -99,6 +99,28 @@ function top_shortcode( $atts, $href = "" ) {
 	return ob_get_clean();
 }
 
+// [contentleft] content [/contentleft]
+function contentleft_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/content-left.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [contentright] content [/contentright]
+function contentright_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/content-right.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
 // End FUNCTIONS ..................................................................
 
 
@@ -114,6 +136,8 @@ add_shortcode( 'slideritem', 'slideritem_shortcode' );
 add_shortcode( 'section', 'section_shortcode' );
 add_shortcode( 'side', 'side_shortcode' );
 add_shortcode( 'content', 'content_shortcode' );
+add_shortcode( 'contentleft', 'contentleft_shortcode' );
+add_shortcode( 'contentright', 'contentright_shortcode' );
 add_shortcode( 'top', 'top_shortcode' );
 
 

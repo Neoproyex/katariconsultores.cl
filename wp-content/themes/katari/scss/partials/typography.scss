@@ -47,9 +47,7 @@ p
     font-size: $font-size-base;
     line-height: $base-line-height;
 
-    
-
-    color: $base;
+    //color: $base;
 }
 h1
 {
@@ -59,16 +57,16 @@ h1
 }
 h2
 {
+    font-family: $h2-family;
     font-size: $font-size-h2;
-    font-weight: $light;
-
-    color: $white;
+    font-weight: bold;
+    color: $predominant;
 }
 h3
 {
+    font-family: $h3-family;
     font-size: $font-size-h3;
-    line-height: 32px;
-
+    line-height: $font-size-h3 + 9px; // +offset
     color: $dark-grey;
 }
 h4

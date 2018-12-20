@@ -791,19 +791,6 @@ div.title-container {
             }
         }
     }
-
-    h2 {
-        font-family: $h2-family;
-        font-size: $font-size-h2;
-        font-weight: bold;
-        color: $predominant;
-    }
-
-    h3 {
-        font-family: $h3-family;
-        font-size: $font-size-h3;
-        line-height: $font-size-h3 + 9px; // +offset
-    }
 }
 
 div.content-container {
@@ -832,6 +819,17 @@ section.wp-page.alternate-bg {
 
     div.content-container {
         color: $white !important;
+
+        div.content.content-left,
+        div.content.content-right {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        div.content.content-left { padding-right: 30px; }
+        div.content.content-right { padding-left: 30px; }
+
+        div.fill { padding: 0; }
     }
 }
 
