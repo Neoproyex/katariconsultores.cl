@@ -229,15 +229,12 @@ Main Nav
     //background-color: #ccc;
 }
 
-.container-fluid {
-    @include box-shadow(0px -23px 90px -17px rgba(0,0,0,0.25));
-}
-
 .header-nav-wrapper
 {
     position: relative;
     background-color: $base; //default $white;
     border-bottom: solid 5px $predominant; //$white, $predominant or $base for none
+    //overflow: hidden;
 
     .logo
     {
@@ -745,10 +742,12 @@ div.mouse
 Pages
 ========================================================================== */
 
-section.wp-page {
+section.wp-page.container-fluid { padding: 0; margin: 0; }
+
+section.wp-page { overflow-y: auto; //border: 2px solid pink;
     div.container {
         margin: $section-padding 0 $section-padding 0;
-        max-width: 100%;
+        max-width: 100%; width: 100%;
     }
 
     div.top-image {
@@ -761,6 +760,10 @@ section.wp-page {
 }
 
 div.title-container {
+    padding-bottom: $section-padding - 9px; // -9px -offset -lineseparator
+    margin-bottom: $section-padding;
+    border-bottom: 1px solid #CCC;
+
     .title {
         display: flex;
         align-items: center;
@@ -801,22 +804,48 @@ div.title-container {
         font-size: $font-size-h3;
         line-height: $font-size-h3 + 9px; // +offset
     }
-    
-    padding-bottom: $section-padding - 9px; // -offset -lineseparator
-    margin-bottom: $section-padding;
-    border-bottom: 1px solid #CCC;
 }
 
 div.content-container {
-    a, p {
-        font-family: $serif;
-        font-size: $serif-size;
-        color: $serif-color;
-        line-height: $serif-size + 5px;
-    }
+    font-family: $serif;
+    font-size: $serif-size;
+    color: $serif-color;
+    line-height: $serif-size + 5px;
 
     .content { padding-right: 160px; }
 }
+
+// Reglas para fondo alternado:
+
+section.wp-page.alternate-bg {
+    div.title-container {
+        border-bottom-color: #0000DD;
+
+        .title {
+            h1 {
+                color: $white;
+            }
+        }
+    }
+
+    h3 { color: $white; }
+
+    div.content-container {
+        color: $white !important;
+    }
+}
+
+/* Formulario de contacto */
+.wpcf7 {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        width: 100%;
+        border: 1px solid #CCC;
+    }
+}
+
 
 /* ==========================================================================
 Footer

@@ -44,8 +44,8 @@ function slideritem_shortcode( $atts, $content = '' ) {
 	return ob_get_clean();
 }
 
-// [view title="" sub="" trans=""] content [/view]
-function view_shortcode( $atts, $content = "" ) {
+// [title title="" sub="" trans=""] content [/view]
+function section_shortcode( $atts, $content = "" ) {
 	// Atts:
 	$atts = shortcode_atts(
 		array(
@@ -60,18 +60,18 @@ function view_shortcode( $atts, $content = "" ) {
 	// Transforma a salida html pura:
 	ob_start();
 
-		include(ROOT . 'templates/shortcodes/view.php');
+		include(ROOT . 'templates/shortcodes/section.php');
 
 	// Retorna salida html pura.
 	return ob_get_clean();
 }
 
-// [empty]
-function empty_shortcode() {
+// [side]
+function side_shortcode( $atts, $content = "" ) {
 	// Transforma a salida html pura:
 	ob_start();
 
-		include(ROOT . 'templates/shortcodes/empty.php');
+		include(ROOT . 'templates/shortcodes/side.php');
 
 	// Retorna salida html pura.
 	return ob_get_clean();
@@ -111,8 +111,8 @@ if( function_exists('register_nav_menu') )
 
 // Registramos shortcode 'slideritem'.
 add_shortcode( 'slideritem', 'slideritem_shortcode' );
-add_shortcode( 'view', 'view_shortcode' );
-add_shortcode( 'empty', 'empty_shortcode' );
+add_shortcode( 'section', 'section_shortcode' );
+add_shortcode( 'side', 'side_shortcode' );
 add_shortcode( 'content', 'content_shortcode' );
 add_shortcode( 'top', 'top_shortcode' );
 

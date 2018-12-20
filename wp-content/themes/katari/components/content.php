@@ -40,35 +40,12 @@
 						$p-- ; // 'inicio' no cuenta como página pero es necesario filtrarla. Decrementa $p.
 						break; // omite 'inicio', porque es el slider. Nos aseguramos de omitiarlo.
 
-					case TYPE['equipo']:
-
-						// SECCION: Equipo -->
-							include(ROOT . 'templates/pages/equipo.php');
-						// FIN SECCION: Equipo -->
-
-						break;
-
-					case TYPE['servicios']:
-
-						// SECCION: Servicios -->
-							include(ROOT . 'templates/pages/servicios.php');
-						// FIN SECCION: Servicios -->
-
-						break;
 
 					case TYPE['alianzas']:
 
 						// SECCION: Alianzas -->
 							include(ROOT . 'templates/pages/alianzas.php');
 						// FIN SECCION: Alianzas -->
-
-						break;
-
-					case TYPE['contacto']:
-
-						// SECCION: Contacto -->
-							include(ROOT . 'templates/pages/contacto.php');
-						// FIN SECCION: Contacto -->
 
 						break;
 

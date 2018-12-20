@@ -1,8 +1,8 @@
 <?php
 /*
-	SHORTCODE: empty.
+	SHORTCODE: side.
 
-	[empty]
+	[side] $content [/side]
 
 	@parámetros: {
 		none
@@ -12,5 +12,5 @@
 
 
 <div class="empty col-md-4 col-12">
-	<!-- empty -->
+	<?php echo do_shortcode( $content ) ?>
 </div>

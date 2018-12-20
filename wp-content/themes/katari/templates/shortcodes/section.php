@@ -1,8 +1,8 @@
 <?php
 /*
-	SHORTCODE: view.
+	SHORTCODE: section.
 
-	[view title="" sub="" trans=""] content [/view]
+	[section title="" sub="" trans=""] content [/section]
 
 	@parámetros: {
 		$atts[
@@ -21,12 +21,12 @@
 	
 	<div class="row title-container">
 		<div class="title col-md-4 col-12">
-			<h1> <?php echo strtoupper( $atts['title'] ) ?> </h1>
+			<h1> <?php echo mb_strtoupper( $atts['title'] ) ?> </h1>
 		</div>
 
 		<div class="description col-md-8 col-12">
 			<h2> <?php echo mb_strtoupper( $atts['sub'], 'utf-8' ) ?> </h2>
-			<h3> <?php echo strtoupper( $atts['trans'] ) ?> </h3>
+			<h3> <?php echo mb_strtoupper( $atts['trans'] ) ?> </h3>
 		</div>
 	</div>
 
