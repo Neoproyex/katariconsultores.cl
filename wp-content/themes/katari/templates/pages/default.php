@@ -11,18 +11,9 @@
 
 
 <section class="wp-page has-padding <?php echo $bg_class ?>" id="<?php echo $page->post_name ?>">
-
+	
 	<?php echo apply_filters( 'the_content', $page->post_content ) ?>
 
-	<!--
-	<div class="row">
-		<div class="col-md-9">
-			<?php
-				// Muestra el contenido de cualquier otra página.
-				
-			?>
-		</div>
-	</div> -->
 </section>
 
 <!-- SECCION -->

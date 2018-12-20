@@ -16,13 +16,13 @@
 */
 ?>
 
-<div class="container-fluid">
+<div class="container-fluid menu-bar">
 
 	<div class="row d-block">
 		<div class="header-nav-wrapper">
 			<div class="logo">
 				<a href="#<?php echo $home_page? $home_page->post_name : 'top' ?>"> <!-- "top" -->
-					<img src="<?php echo get_template_directory_uri() ?>/img/synthetica-logo.png" alt="LOGO CORPORATIVO" data-rjs="2">
+					<img src="<?php echo get_template_directory_uri() ?>/img/katari-logo.png" alt="KATARI CONSULTORES" data-rjs="2">
 				</a>
 			</div>
 

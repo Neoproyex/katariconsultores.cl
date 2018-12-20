@@ -746,7 +746,18 @@ Pages
 ========================================================================== */
 
 section.wp-page {
-    div.container { margin: 0; max-width: 100%; }
+    div.container {
+        margin: $section-padding 0 $section-padding 0;
+        max-width: 100%;
+    }
+
+    div.top-image {
+        height: 250px;
+
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 
 div.title-container {
@@ -1197,6 +1208,10 @@ Responsive Media Queries
         }
     }
 
+    section.wp-page {
+        div.top-image { height: 200px; }
+    }
+
     div.content-container {
         .content { padding-right: 90px; }
     }
@@ -1393,8 +1408,11 @@ Responsive Media Queries
         max-height: 180px;
     }
 }
-@media screen and (max-width:480px)
-{
+@media screen and (max-width:480px) {
+    section.wp-page {
+        div.top-image { height: 150px; }
+    }
+
     .header-nav-wrapper
     {
         border-bottom: solid 5px $predominant;

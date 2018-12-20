@@ -37,15 +37,15 @@ $(document).ready(function() {
 
         var menu_height = $('.header-nav-wrapper').outerHeight( true )
 
-        $('.container-fluid').waypoint(function() {
+        $('.menu-bar').waypoint(function() {
             menu_height = $('.header-nav-wrapper').outerHeight( true )
             var header_height = $('.hero').outerHeight( true )
 
             if ( $(window).scrollTop() >= header_height ) {
-                $('.container-fluid').addClass('fixed-menu')
+                $('.menu-bar').addClass('fixed-menu')
                 $('.wp-page').first().css('margin-top', menu_height + 'px')
             } else {
-                $('.container-fluid').removeClass('fixed-menu')
+                $('.menu-bar').removeClass('fixed-menu')
                 $('.wp-page').first().css('margin-top', '0px')
             }
         });

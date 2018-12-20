@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 footer-branding">
-				<img class="footer-branding-logo" src="<?php echo get_template_directory_uri() ?>/img/synthetica-logo.png" alt="LOGO CORPORATIVO" data-rjs="2"> <a>LOGO CORPORATIVO</a>
+				<img class="footer-branding-logo" src="<?php echo get_template_directory_uri() ?>/img/katari-logo.png" alt="KATARI CONSULTORES" data-rjs="2"> <a>LOGO CORPORATIVO</a>
 				<p> <?php echo t__('Lema, marca o texto.') ?> <a href="#url"><em>Katari</em></a></p>
 			</div>
 		</div>

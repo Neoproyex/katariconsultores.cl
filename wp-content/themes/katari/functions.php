@@ -66,6 +66,39 @@ function view_shortcode( $atts, $content = "" ) {
 	return ob_get_clean();
 }
 
+// [empty]
+function empty_shortcode() {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/empty.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [content] content [/content]
+function content_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/content.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [top] href [/top]
+function top_shortcode( $atts, $href = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/top.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
 // End FUNCTIONS ..................................................................
 
 
@@ -79,6 +112,9 @@ if( function_exists('register_nav_menu') )
 // Registramos shortcode 'slideritem'.
 add_shortcode( 'slideritem', 'slideritem_shortcode' );
 add_shortcode( 'view', 'view_shortcode' );
+add_shortcode( 'empty', 'empty_shortcode' );
+add_shortcode( 'content', 'content_shortcode' );
+add_shortcode( 'top', 'top_shortcode' );
 
 
 /*	Sección para registrar cadenas de tema "adicionales" para traducción

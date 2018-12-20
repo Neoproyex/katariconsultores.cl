@@ -8,6 +8,12 @@ $section-padding-tall: 160px 0;
 .has-padding {
     padding: $section-padding-regular;
 }
+
+.wp-page.has-padding {
+	padding-top: 0;
+    padding-bottom: 0;
+}
+
 .has-padding-tall {
     padding: $section-padding-tall;
 }
