@@ -20,6 +20,9 @@
 <div class="container">
 	
 	<div class="row title-container">
+
+		
+
 		<div class="title col-md-4 col-12">
 			<h1> <?php echo mb_strtoupper( $atts['title'] ) ?> </h1>
 		</div>

@@ -765,19 +765,18 @@ div.title-container {
     border-bottom: 1px solid #CCC;
 
     .title {
-        display: flex;
-        align-items: center;
+        //display: flex;
+        //align-items: center;
+        padding-left: $content-lr-padding;
 
         h1 {
             font-family: $h1-family;
             font-size: $font-size-h1;
-            text-align: center;
             color: $base;
             line-height: $font-size-h1;
             
             position: relative;
-            margin: 0 auto 0 auto;
-            margin-top: -10px;
+            //margin: 0 auto 0 auto;
 
             &:after {
                 content: '';
@@ -799,7 +798,8 @@ div.content-container {
     color: $serif-color;
     line-height: $serif-size + 5px;
 
-    .content { padding-right: 160px; }
+    .content { padding-right: $content-lr-padding; }
+    .side { padding-left: $content-lr-padding; }
 }
 
 // Reglas para fondo alternado:
@@ -818,7 +818,7 @@ section.wp-page.alternate-bg {
     h3 { color: $white; }
 
     div.content-container {
-        color: $white !important;
+        color: $white;
 
         div.content.content-left,
         div.content.content-right {
@@ -826,10 +826,15 @@ section.wp-page.alternate-bg {
             padding-right: 0;
         }
 
-        div.content.content-left { padding-right: 30px; }
-        div.content.content-right { padding-left: 30px; }
+        div.content.content-left {
+            padding-left: $content-lr-padding;
+            padding-right: $content-padding-between;
+        }
 
-        div.fill { padding: 0; }
+        div.content.content-right {
+            padding-right: $content-lr-padding;
+            padding-left: $content-padding-between;
+        }
     }
 }
 

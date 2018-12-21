@@ -11,8 +11,6 @@
 ?>
 
 
-<div class="content content-right col-md-4 col-12">
+<div class="content content-right col-md-6 col-12">
 	<?php echo do_shortcode( $content ) ?>
 </div>
-
-<div class="fill col-md-2"> <!-- spacing --> </div>
