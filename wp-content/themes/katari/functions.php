@@ -121,6 +121,17 @@ function contentright_shortcode( $atts, $content = "" ) {
 	return ob_get_clean();
 }
 
+// [set] content [/set]
+function set_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/set.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
 // End FUNCTIONS ..................................................................
 
 
@@ -139,6 +150,7 @@ add_shortcode( 'content', 'content_shortcode' );
 add_shortcode( 'contentleft', 'contentleft_shortcode' );
 add_shortcode( 'contentright', 'contentright_shortcode' );
 add_shortcode( 'top', 'top_shortcode' );
+add_shortcode( 'set', 'set_shortcode' );
 
 
 /*	Sección para registrar cadenas de tema "adicionales" para traducción

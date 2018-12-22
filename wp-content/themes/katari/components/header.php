@@ -91,8 +91,8 @@
 	<div class="social">
 
 		<ul>
-			<li> <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a> </li>
-			<li> <a href="#" target="_blank"><i class="fa fa-tumblr"></i></a> </li>
+			<li> <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a> </li>
+			<li> <a href="#" target="_blank"><i class="fab fa-tumblr"></i></a> </li>
 		</ul>
 
 	</div>

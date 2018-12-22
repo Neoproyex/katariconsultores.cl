@@ -229,12 +229,10 @@ Main Nav
     //background-color: #ccc;
 }
 
-.header-nav-wrapper
-{
+.header-nav-wrapper {
     position: relative;
     background-color: $base; //default $white;
     border-bottom: solid 5px $predominant; //$white, $predominant or $base for none
-    //overflow: hidden;
 
     .logo
     {
@@ -246,9 +244,9 @@ Main Nav
         text-align: center;
         background-color: $base;
     }
-    .primary-nav-wrapper
-    {
+    .primary-nav-wrapper {
         float: right;
+        height: 100px; // corrige overflow
 
         -webkit-transition: all 300ms;
                 transition: all 300ms;
@@ -835,6 +833,19 @@ section.wp-page.alternate-bg {
             padding-right: $content-lr-padding;
             padding-left: $content-padding-between;
         }
+    }
+}
+
+/* Set iconos - texto [set] content [/set] */
+.side { padding-right: 0; }
+
+.set {
+    //border: 1px solid blue;
+
+    .icon {
+        margin-right: 10px;
+
+        i { font-size: 20px; }
     }
 }
 
