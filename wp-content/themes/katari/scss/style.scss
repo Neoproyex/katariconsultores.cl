@@ -250,6 +250,8 @@ Main Nav
 
         -webkit-transition: all 300ms;
                 transition: all 300ms;
+
+            &.open { height: 100%; }
     }
     nav
     {
@@ -742,7 +744,9 @@ Pages
 
 section.wp-page.container-fluid { padding: 0; margin: 0; }
 
-section.wp-page { overflow-y: auto; //border: 2px solid pink;
+section.wp-page {
+    overflow-y: auto;
+
     div.container {
         margin: $section-padding 0 $section-padding 0;
         max-width: 100%; width: 100%;
@@ -758,13 +762,11 @@ section.wp-page { overflow-y: auto; //border: 2px solid pink;
 }
 
 div.title-container {
-    padding-bottom: $section-padding - 9px; // -9px -offset -lineseparator
+    padding-bottom: $section-padding;
     margin-bottom: $section-padding;
     border-bottom: 1px solid #CCC;
 
     .title {
-        //display: flex;
-        //align-items: center;
         padding-left: $content-lr-padding;
 
         h1 {
@@ -774,7 +776,6 @@ div.title-container {
             line-height: $font-size-h1;
             
             position: relative;
-            //margin: 0 auto 0 auto;
 
             &:after {
                 content: '';
@@ -837,13 +838,14 @@ section.wp-page.alternate-bg {
 }
 
 /* Set iconos - texto [set] content [/set] */
-.side { padding-right: 0; }
+.side { padding-right: 0; overflow: hidden; }
+.contacto .side { padding-top: 105px; }
 
 .set {
-    //border: 1px solid blue;
+    padding-left: 15px;
 
     .icon {
-        margin-right: 10px;
+        margin-right: 20px;
 
         i { font-size: 20px; }
     }
@@ -855,8 +857,52 @@ section.wp-page.alternate-bg {
     input[type="email"],
     input[type="tel"],
     textarea {
-        width: 100%;
         border: 1px solid #CCC;
+    }
+
+    input[type="text"],
+    textarea { width: 100%; }
+
+    input[type="email"],
+    input[type="tel"] {
+        width: 50%;
+    }
+
+    input[type="email"] { border-right: none; }
+    input[type="tel"] { border-left: none; }
+
+
+    input[type="submit"] {
+        background-color: #5F5D60;
+        border: none;
+        color: $white;
+        font-size: 12px;
+        padding: 7px;
+
+        &:active { background: $black; }
+    }
+
+    textarea { max-height: 400px; margin-top: 3px; }
+
+    .screen-reader-response {
+        color: red;
+        margin-top: $section-padding;
+        margin-bottom: $section-padding;
+        font-weight: bold;
+
+        ul {
+            padding-left: 20px;
+            margin-top: 10px;
+
+            li { font-weight: normal; }
+        }
+    }
+
+    .wpcf7-not-valid-tip, .wpcf7-validation-errors { color: red; }
+
+    .wpcf7-response-output,  {
+        margin-top: $section-padding;
+        font-weight: bold;
     }
 }
 

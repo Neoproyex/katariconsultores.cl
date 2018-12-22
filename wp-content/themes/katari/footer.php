@@ -12,6 +12,11 @@
 		<?php include_once(ROOT . 'components/footer.php') // Incluímos el footer como componente. ?>
 	<!-- FIN Footer -->
 
+	<!-- Google Maps -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACK9T5e-fv0vPjXH_2XhhuWwHNs5gEoNc&callback=initMap"
+  type="text/javascript"></script>
+  <!-- end Google Maps -->
+
 
 	<!-- JS from CDN -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>

@@ -82,16 +82,16 @@ $(document).ready(function() {
     /***************** Responsive Nav ******************/
 
     $('.nav-toggle').click(function() {
+        $('.primary-nav-wrapper').toggleClass('open');
         $(this).toggleClass('active');
         $('.navicon').toggleClass('fixed');
-        $('.primary-nav-wrapper').toggleClass('open');
         event.preventDefault();
     });
 
     $('.primary-nav-wrapper li a').click(function() {
+        $('.primary-nav-wrapper').toggleClass('open');
         $('.nav-toggle').toggleClass('active');
         $('.navicon').toggleClass('fixed');
-        $('.primary-nav-wrapper').toggleClass('open');
     });
 
 
