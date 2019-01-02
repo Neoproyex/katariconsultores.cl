@@ -59,7 +59,7 @@ $(document).ready(function() {
 
     /***************** Smooth Scroll ******************/
 
-    $('a[href*="#"]:not([href="#"]):not([class="dropdown-toggle"])').click(function() {
+    $('a[href*="#"]:not([href="#"]):not([class="dropdown-toggle"])', '.primary-nav, .footer-primary-nav, .mouse-container').click(function() {
         if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
 
             var target = $(this.hash);
@@ -189,4 +189,9 @@ $(document).ready(function() {
             $(this).toggleClass( 'hover' )
         })
     }
+
+
+    /***************** Fixes some shit ****************************/
+
+    $('.list-group-item', '.page-list-group').last().addClass('list-group-item-last');
 })

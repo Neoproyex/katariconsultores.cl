@@ -38,13 +38,13 @@ function slideritem_shortcode( $atts, $content = '' ) {
 	// Transforma a salida html pura:
 	ob_start();
 
-		include(ROOT . 'templates/shortcodes/slideitem.php');
+		include(ROOT . 'templates/shortcodes/slideritem.php');
 
 	// Retorna salida html pura.
 	return ob_get_clean();
 }
 
-// [title title="" sub="" trans=""] content [/view]
+// [title title="" sub="" trans=""] content [/title]
 function section_shortcode( $atts, $content = "" ) {
 	// Atts:
 	$atts = shortcode_atts(
@@ -132,6 +132,129 @@ function set_shortcode( $atts, $content = "" ) {
 	return ob_get_clean();
 }
 
+// [slider] content [/slider]
+function slider_shortcode( $atts, $content = "" ) {
+	// Atts:
+	$atts = shortcode_atts(
+		array(
+			'options'=> '{}'
+		),
+		$atts
+	);
+
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/slider.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [img] bg_image_url [/img]
+function img_shortcode( $atts, $bg_image_url = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/img.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [fullcontent] content [/fullcontent]
+function fullcontent_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/fullcontent.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [listgroup] content [/listgroup]
+function listgroup_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/listgroup.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [listcontrol] content [/listcontrol]
+function listcontrol_shortcode( $atts, $content = "" ) {
+	// Atts:
+	$atts = shortcode_atts(
+		array(
+			'id'=> ''
+		),
+		$atts
+	);
+
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/listcontrol.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [control title="" hand=""]
+function control_shortcode( $atts ) {
+	// Atts:
+	$atts = shortcode_atts(
+		array(
+			'title'=> '',
+			'hand' => '',
+			'active' => '0'
+		),
+		$atts
+	);
+
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/control.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [listcontent] content [/listcontent]
+function listcontent_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/listcontent.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [c hand="" active=""]
+function c_shortcode( $atts, $content ) {
+	// Atts:
+	$atts = shortcode_atts(
+		array(
+			'hand' => '',
+			'active' => '0'
+		),
+		$atts
+	);
+
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/c.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
 // End FUNCTIONS ..................................................................
 
 
@@ -151,6 +274,14 @@ add_shortcode( 'contentleft', 'contentleft_shortcode' );
 add_shortcode( 'contentright', 'contentright_shortcode' );
 add_shortcode( 'top', 'top_shortcode' );
 add_shortcode( 'set', 'set_shortcode' );
+add_shortcode( 'slider', 'slider_shortcode' );
+add_shortcode( 'img', 'img_shortcode' );
+add_shortcode( 'fullcontent', 'fullcontent_shortcode' );
+add_shortcode( 'listgroup', 'listgroup_shortcode' );
+add_shortcode( 'listcontrol', 'listcontrol_shortcode' );
+add_shortcode( 'control', 'control_shortcode' );
+add_shortcode( 'listcontent', 'listcontent_shortcode' );
+add_shortcode( 'c', 'c_shortcode' );
 
 
 /*	Sección para registrar cadenas de tema "adicionales" para traducción
