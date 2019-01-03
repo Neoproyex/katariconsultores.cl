@@ -756,9 +756,9 @@ section.wp-page {
     }
 
     div.top-image {
-        height: 250px;
+        height: $top-img-height;
 
-        background-position: center bottom;
+        background-position: center top;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -872,20 +872,17 @@ section.wp-page.alternate-bg {
     }
 }
 
-
-$page-slider-height: 250px;
-
 .page-slider {
-    height: $page-slider-height;
+    height: $top-img-height; /* page slider height */
 
     .carousel-cell {
-        width: 100%; /* full width */
-        height: $page-slider-height; /* height of carousel */
+        width: 100%;
+        height: 100%;
         margin-right: 10px;
 
+        background-position: center top;
         background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: bottom;
+        background-size: cover !important;
     }
 
     .flickity-page-dots {
@@ -938,7 +935,8 @@ $list-group-item-padding: 10px; // selector <a>
                 border: none;
                 border-bottom: 1px solid $lines-color-primary;
                 padding: $list-group-item-padding 0 $list-group-item-padding 0;
-                padding-left: $content-lr-padding; /* problem here! */
+                padding-left: $content-lr-padding;
+                padding-right: 20px;
                 margin-bottom: 0;
                 word-wrap: break-word;
 
@@ -948,10 +946,26 @@ $list-group-item-padding: 10px; // selector <a>
                     font-weight: 600;
                     border: none;
                     border-bottom: 1px solid $lines-color-primary;
+
+                    &::after {
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 600;
+                        content: "\f054";
+
+                        width: auto;
+                        height: 100%;
+
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+
+                        display: flex;
+                        align-items: center;
+                    }
                 }
             }
             
-            // equals .list-group-item:last but not working -_-
+            // equals .list-group-item:last but not working -_- (addclass via js)
             .list-group-item-last { border-bottom: none !important; }
         }
     }
@@ -976,6 +990,13 @@ section#servicios {
     }
 }
 
+iframe.map {
+    width: 100%;
+    height: $top-img-height;
+
+    border: none;
+}
+
 
 /* ............... CONTACTO ............... */
 
@@ -988,7 +1009,7 @@ $error-text-color: $predominant;
     input[type="tel"],
     textarea {
         border: 1px solid $lines-color-primary;
-        padding: 0 5px 0 5px;
+        padding: 2px 5px 2px 5px;
     }
 
     input[type="text"],

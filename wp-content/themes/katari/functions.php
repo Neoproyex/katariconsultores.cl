@@ -137,7 +137,7 @@ function slider_shortcode( $atts, $content = "" ) {
 	// Atts:
 	$atts = shortcode_atts(
 		array(
-			'options'=> '{}'
+			'options'=> '{ "autoPlay": 5000, "wrapAround": true, "rightToLeft": true, "selectedAttraction": 0.01, "friction": 0.15 }'
 		),
 		$atts
 	);
