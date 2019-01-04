@@ -77,6 +77,17 @@ function side_shortcode( $atts, $content = "" ) {
 	return ob_get_clean();
 }
 
+// [sidecontent] content [/sidecontent]
+function sidecontent_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/sidecontent.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
 // [content] content [/content]
 function content_shortcode( $atts, $content = "" ) {
 	// Transforma a salida html pura:
@@ -269,6 +280,7 @@ if( function_exists('register_nav_menu') )
 add_shortcode( 'slideritem', 'slideritem_shortcode' );
 add_shortcode( 'section', 'section_shortcode' );
 add_shortcode( 'side', 'side_shortcode' );
+add_shortcode( 'sidecontent', 'sidecontent_shortcode' );
 add_shortcode( 'content', 'content_shortcode' );
 add_shortcode( 'contentleft', 'contentleft_shortcode' );
 add_shortcode( 'contentright', 'contentright_shortcode' );

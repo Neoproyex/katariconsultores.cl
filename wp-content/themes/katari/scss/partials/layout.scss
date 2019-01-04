@@ -4,28 +4,55 @@
 $section-padding: 35px; // padding espacio entre títulos y contenido
 $section-padding-regular: $section-padding 0;
 $section-padding-tall: 160px 0;
+
+/* ........................... Responsive ........................... */
+
+// INIT
 $content-lr-padding: 160px;
 $content-padding-between: 35px;
 $top-img-height: 200px;
 
-.has-padding {
-    padding: $section-padding-regular;
-}
+// 1200px
+$content-lr-padding-1200: 125px;
+$content-padding-between-1200: 25px;
+
+// 1091px
+/* red point */
+$content-lr-padding-1091: 100px;
+$content-padding-between-1091: 20px;
+/* ...... */
+
+// 1024px
+$content-lr-padding-1024: 90px;
+
+// 991px
+$content-lr-padding-991: 60px;
+$content-padding-between-991: 20px;
+
+/* one line formats */
+// 768px
+$content-lr-padding-768: 80px;
+$top-img-height-768: 170px;
+// 640px
+$content-lr-padding-640: 45px;
+// 576px
+$top-img-height-576: 150px;
+// 480px
+$content-lr-padding-480: 25px;
+// 320px
+$content-lr-padding-320: 15px;
+$top-img-height-320: 160px;
+
+/* .................................................................. */
+
+.has-padding { padding: $section-padding-regular; }
 
 .wp-page.has-padding {
 	padding-top: 0;
     padding-bottom: 0;
 }
 
-.has-padding-tall {
-    padding: $section-padding-tall;
-}
-.alternate-bg {
-    background-color: $blue;
-}
-.footer-bg {
-    background-color: $base;
-}
-.is-centered {
-    text-align: center;
-}
+.has-padding-tall { padding: $section-padding-tall; }
+.alternate-bg { background-color: $blue; }
+.footer-bg { background-color: $base; }
+.is-centered { text-align: center; }

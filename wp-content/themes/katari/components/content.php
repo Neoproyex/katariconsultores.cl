@@ -32,6 +32,9 @@
 				/* 	Se captura metadato de página con clave TYPE_METADATA_KEY (por defecto 'tipo')
 					que sirve para identificar el tipo de página (en el caso de que se quiera personalizar) */
 				$page_type = get_post_meta( $page->ID, TYPE_METADATA_KEY, true );
+
+				// Se captura metadato para fondo alternativo.
+				$page_bg = get_post_meta( $page->ID, BG_METADATA_KEY, true );
 				
 				// Se identifica cuál es la página.
 				switch( $page_type ):
@@ -41,13 +44,17 @@
 						break; // omite 'inicio', porque es el slider. Nos aseguramos de omitiarlo.
 
 
-					case TYPE['alianzas']:
+					/* 	FORMATO PARA INCLUÍR TEMPLATE PERSONALIZADO DE SECCIÓN.
 
-						// SECCION: Alianzas -->
-							include(ROOT . 'templates/pages/alianzas.php');
-						// FIN SECCION: Alianzas -->
+					case TYPE['tipo-de-página']:
+
+						// SECCION: nombre-página -->
+							include(ROOT . 'templates/pages/tipo-de-página.php');
+						// FIN SECCION: nombre de página -->
 
 						break;
+
+					*/
 
 					default: // 'Otras' páginas y Sub-páginas.
 

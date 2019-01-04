@@ -10,8 +10,7 @@
 */
 ?>
 
-
-<div class="row set">
+<div class="row set col-12 col-sm-auto col-md-12">
 	<div class="icon float-left">
 		<i class="<?php echo $atts['ico'] ?>"></i>
 	</div>

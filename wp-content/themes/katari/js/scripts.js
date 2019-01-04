@@ -59,7 +59,7 @@ $(document).ready(function() {
 
     /***************** Smooth Scroll ******************/
 
-    $('a[href*="#"]:not([href="#"]):not([class="dropdown-toggle"])', '.primary-nav, .footer-primary-nav, .mouse-container').click(function() {
+    $('a[href*="#"]:not([href="#"]):not([class="dropdown-toggle"])', '.header-nav-wrapper, .footer-primary-nav, .mouse-container').click(function() {
         if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
 
             var target = $(this.hash);
