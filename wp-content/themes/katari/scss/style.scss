@@ -109,8 +109,47 @@ textarea { outline: none; }
     height: calc(100vh - 8.2em);
     margin-right: 10px;
 
-    background-position: center;
-    background-size: cover;
+    background: white;
+
+    overflow: hidden !important;
+
+    .carousel-img {
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background-position: center;
+        background-size: cover;
+    }
+    
+    &.is-selected .carousel-img {
+        $animation: zoomin 10s forwards;
+
+        animation: $animation;
+        -webkit-animation: $animation;
+    }
+}
+
+@-webkit-keyframes zoomin {
+    $scale-from: 1;
+    $scale-to: 1.15;
+
+    0% {
+        transform: scale( $scale-from );
+        -webkit-transform: scale( $scale-from );
+
+        opacity: 0;
+    }
+
+    5% { opacity: 1; }
+
+    100% {
+        transform: scale( $scale-to );
+        -webkit-transform: scale( $scale-to );
+    }
 }
 
 .flickity-prev-next-button { display: none; }
@@ -173,11 +212,6 @@ Waypoints
 .wp2 {
     -webkit-animation-delay: .8s;
             animation-delay: .8s;
-}
-
-.wp3 {
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
 }
 
 .bounceInLeft,
@@ -1035,6 +1069,8 @@ footer .footer-container {
     padding-right: ($content-lr-padding * 2) / 3;
 }
 
+footer.has-padding { padding-top: 120px; padding-bottom: 120px; }
+
 footer {
     p {
         font-size: $font-size-footer;
@@ -1673,6 +1709,8 @@ Responsive Media Queries
             padding-right: $content-lr-padding-480 !important;
         }
     }
+
+    footer.has-padding { padding-top: 80px; padding-bottom: 80px; }
 
     footer .footer-container {
         padding-left: ($content-lr-padding-480 * 2) / 3;

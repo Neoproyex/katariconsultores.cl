@@ -5,18 +5,18 @@
 <div class="container">
 	<div class="row title-container">
 
-		<div class="title col-md-4 col-12">
+		<div class="title col-md-4 col-12 wp3">
 			<h1> EQUIPO </h1>
 		</div>
 
-		<div class="description col-md-8 col-12">
+		<div class="description col-md-8 col-12 wp3">
 			<h2> NUESTROS PROFESIONALES </h2>
 			<h3> EXPERIENCIA A SU SERVICIO </h3>
 		</div>
 
 	</div>
 
-	<div class="row content-container">
+	<div class="row content-container wp3">
 
 		<div class="side col-md-4 col-12">
 			<!-- left -->

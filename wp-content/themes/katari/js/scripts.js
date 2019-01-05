@@ -1,6 +1,49 @@
+// Extends jQuery with animateCss()
+
+$.fn.extend({
+  animateCss: function(animationName, callback) {
+    var animationEnd = (function(el) {
+      var animations = {
+        animation: 'animationend',
+        OAnimation: 'oAnimationEnd',
+        MozAnimation: 'mozAnimationEnd',
+        WebkitAnimation: 'webkitAnimationEnd',
+      };
+
+      for (var t in animations) {
+        if (el.style[t] !== undefined) {
+          return animations[t];
+        }
+      }
+    })(document.createElement('div'));
+
+    this.addClass('animated ' + animationName).one(animationEnd, function() {
+      $(this).removeClass('animated ' + animationName);
+
+      if (typeof callback === 'function') callback();
+    });
+
+    return this;
+  },
+});
+
+/* ........................................................................ */
+
 $(document).ready(function() {
 
     var fixed_menu = false
+
+    /***************** Header slider  ******************/
+
+    var carousel_transition = function() {
+        $('.carousel').find('.is-selected .hero-intro-title h1').animateCss('fadeInDown');
+        $('.carousel').find('.is-selected .hero-intro-text').animateCss('fadeInUp');
+    }
+
+    $('.carousel').on( 'ready.flickity', carousel_transition );
+    $('.carousel').on( 'change.flickity', carousel_transition );
+    $('.carousel').flickity( $('.carousel').data('flickity-options') );
+
 
     /***************** Share Dropdown ******************/
 
@@ -99,19 +142,23 @@ $(document).ready(function() {
     /***************** Waypoints ******************/
 
     $('.wp1').waypoint(function() {
-        $('.wp1').addClass('animated fadeInUp');
+        $('.wp1').addClass('animated fadeInDown');
     }, {
         offset: '80%'
     });
+
     $('.wp2').waypoint(function() {
         $('.wp2').addClass('animated fadeInUp');
     }, {
         offset: '95%'
     });
-    $('.wp3').waypoint(function() {
-        $('.wp3').addClass('animated fadeInUp');
-    }, {
-        offset: '95%'
+
+    $('.wp3').each(function(i) { console.log(i);
+        $(this).waypoint(function() {
+            $(this.element).addClass('animated fadeIn');
+        }, {
+            offset: '90%'
+        });
     });
 
 

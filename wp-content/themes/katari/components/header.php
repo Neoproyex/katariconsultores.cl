@@ -40,11 +40,11 @@
 		if( SLIDER_AUTOPLAY )
 			$slider_autoplay = '"autoPlay": ' . SLIDER_AUTOPLAY_TIME;
 
-		$slider_options = "{ $slider_autoplay }";
+		$slider_options = "{ $slider_autoplay, \"pauseAutoPlayOnHover\": false }";
 
 	?>
 
-	<div class="carousel js-flickity" data-flickity-options='<?php echo $slider_options ?>'>
+	<div class="carousel" data-flickity-options='<?php echo $slider_options ?>'>
 		<?php
 
 			// Si no existe página 'inicio' creada mostramos slider por defecto.

@@ -11,4 +11,4 @@
 ?>
 
 
-<div class="container-fluid top-image" style="background-image: url('<?php echo $href ?>')"></div>
+<div class="container-fluid top-image wp3" style="background-image: url('<?php echo $href ?>')"></div>

@@ -11,6 +11,6 @@
 ?>
 
 
-<div class="page-slider" data-flickity='<?php echo str_replace("'", "\"", $atts['options']) ?>'>
+<div class="page-slider wp3" data-flickity='<?php echo str_replace("'", "\"", $atts['options']) ?>'>
 	<?php echo do_shortcode( $content ) ?>
 </div>
