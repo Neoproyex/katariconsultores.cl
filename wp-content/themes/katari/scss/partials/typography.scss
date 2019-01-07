@@ -1,10 +1,12 @@
 // Typography partial
 @import 'colors'; // Fonts
+
 $sans-serif: Raleway, Verdana, Arial, sans-serif;
 $h1-family: Raleway,'Open Sans', Raleway, Verdana, sans-serif;
 $h2-family: Raleway,myriad-pro, Raleway, Verdana, sans-serif;
 $h3-family: Raleway,myriad-pro, Raleway, Verdana, sans-serif;
 $serif: Raleway,myriad-pro, Raleway, Verdana, sans-serif;
+
 $light: 300;
 $normal: 400;
 $semibold: 500;
@@ -14,11 +16,12 @@ $italic: italic; // Sizes
 
 // Headings
 $serif-size: 14px;
-$font-size-h1: 24px;
+$font-size-h1: 22px;
 $font-size-h2: 14px;
-$font-size-h3: 14px;
+$font-size-h3: 12px;
 $font-size-h4: 15px;
 $font-size-h5: 13px; // Other
+
 $font-size-base: 15px;
 $font-size-footer: 14px;
 $font-size-nav: 14px;
@@ -26,9 +29,10 @@ $font-size-search-input: 13px;
 $font-size-tag: 13px;
 $font-size-smalltext: 13px;
 $font-size-button: 13px; // Responsive Sizes
+
 $responsive-h1: 40px; // Line height
 $line-height-h1: 68px;
-$base-line-height: 27px;
+$base-line-height: 20px;
 $line-height-article-header: 30px; // Styles
 
 // Others
@@ -39,58 +43,40 @@ $text-shadow: 1px 0px 0px #000;
         $corner-dist: 30px;
 /* ------------------- */
 
+
 /* ==========================================================================
 Typography
 ========================================================================== */
-p
-{
-    font-size: $font-size-base;
-    line-height: $base-line-height;
 
-    //color: $base;
+p {
+    font-family: $sans-serif;
+    font-size: $serif-size;
+    line-height: $base-line-height;
+    font-weight: $semibold;
 }
-h1
-{
+
+h1 {
+    font-family: $h1-family;
     font-size: $font-size-h1;
-    font-weight: $light;
+    font-weight: $bold;
     line-height: $line-height-h1;
 }
-h2
-{
+
+h2 {
     font-family: $h2-family;
     font-size: $font-size-h2;
-    font-weight: bold;
+    font-weight: $bold;
     color: $predominant;
 }
-h3
-{
+
+h3 {
     font-family: $h3-family;
     font-size: $font-size-h3;
     line-height: $font-size-h3 + 9px; // +offset
     color: $dark-grey;
 }
-h4
-{
-    font-size: $font-size-h4;
-    font-weight: $bold;
 
-    margin: 7px 0 65px 60px;
-
-    text-transform: uppercase;
-}
-h5
-{
-    font-size: $font-size-h5;
-    font-weight: $bold;
-
-    display: inline-block;
-
-    text-transform: uppercase;
-
-    color: $base;
-}
-.bold-italic
-{
+.bold-italic {
     font-weight: $bold;
     font-style: $italic;
 }

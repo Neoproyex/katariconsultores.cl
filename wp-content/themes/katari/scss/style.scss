@@ -11,7 +11,6 @@
  */
 
 
-
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -64,14 +63,14 @@ html, body {
 .no-padding { padding: 0; }
 .no-margin { margin: 0; }
 
-a {
+a, input[type="submit"], input[type="button"] {
     -webkit-transition-timing-function: ease;
             transition-timing-function: ease;
     -webkit-transition-duration: 200ms;
             transition-duration: 200ms;
-
-    color: $predominant;
 }
+
+a { color: $predominant; }
 
 a:hover {
     text-decoration: none;
@@ -979,7 +978,11 @@ $error-text-color: $predominant;
     textarea {
         border: 1px solid $lines-color-primary;
         padding: 2px 5px 2px 5px;
+        margin-top: 5px;
     }
+
+    .wpcf7-form-control-wrap:first-child
+        input[type="text"] { margin-top: 0; }
 
     input[type="text"],
     textarea { width: 100%; }
@@ -1010,7 +1013,6 @@ $error-text-color: $predominant;
         min-height: 200px;
         max-height: 300px;
 
-        margin-top: 3px;
         padding-right: 25px;
         resize: none;
     }
@@ -1440,7 +1442,7 @@ Responsive Media Queries
             h1 {
                 text-align: left;
 
-                &:after { display: none; }
+                &::after { display: none; }
             }
 
             margin-bottom: 5px; //20px
@@ -1717,6 +1719,14 @@ Responsive Media Queries
         padding-right: ($content-lr-padding-480 * 2) / 3;
     }
 
+    .wpcf7 {
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] { height: 30px; }
+
+        input[type="submit"] { padding: 9px; }
+    }
+
     #contacto {
         .side-content { padding-left: $content-lr-padding-480 !important; }
         input[type="tel"] { display: block; }
@@ -1792,10 +1802,10 @@ Responsive Media Queries
     #contacto .side-content { padding-left: $content-lr-padding-320 !important; }
 }
 
+
 /* ---------------------------------------------------------------------
  * RESPONSIVE HEIGHT.
  * --------------------------------------------------------------------- */
-
 
 @media screen and (max-height: 600px) {
     .header-nav-wrapper nav ul li {

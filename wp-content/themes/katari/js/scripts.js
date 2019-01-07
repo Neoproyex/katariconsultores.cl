@@ -1,33 +1,3 @@
-// Extends jQuery with animateCss()
-
-$.fn.extend({
-  animateCss: function(animationName, callback) {
-    var animationEnd = (function(el) {
-      var animations = {
-        animation: 'animationend',
-        OAnimation: 'oAnimationEnd',
-        MozAnimation: 'mozAnimationEnd',
-        WebkitAnimation: 'webkitAnimationEnd',
-      };
-
-      for (var t in animations) {
-        if (el.style[t] !== undefined) {
-          return animations[t];
-        }
-      }
-    })(document.createElement('div'));
-
-    this.addClass('animated ' + animationName).one(animationEnd, function() {
-      $(this).removeClass('animated ' + animationName);
-
-      if (typeof callback === 'function') callback();
-    });
-
-    return this;
-  },
-});
-
-/* ........................................................................ */
 
 $(document).ready(function() {
 
@@ -36,13 +6,22 @@ $(document).ready(function() {
     /***************** Header slider  ******************/
 
     var carousel_transition = function() {
-        $('.carousel').find('.is-selected .hero-intro-title h1').animateCss('fadeInDown');
-        $('.carousel').find('.is-selected .hero-intro-text').animateCss('fadeInUp');
+        var $this = $('.carousel-cell:not(.is-selected)', this)
+            .find('.hero-intro-title h1, .hero-intro-text').css('visibility', 'hidden');
+
+        $('.carousel').find('.is-selected .hero-intro-title h1')
+            .css('visibility', 'visible')
+            .animateCss('fadeInDown');
+
+        $('.carousel').find('.is-selected .hero-intro-text')
+            .css('visibility', 'visible')
+            .animateCss('fadeInUp');
     }
 
     $('.carousel').on( 'ready.flickity', carousel_transition );
     $('.carousel').on( 'change.flickity', carousel_transition );
-    $('.carousel').flickity( $('.carousel').data('flickity-options') );
+
+    $('.carousel').flickity( jQuery('.carousel').data('flickity-options') );
 
 
     /***************** Share Dropdown ******************/
@@ -153,7 +132,7 @@ $(document).ready(function() {
         offset: '95%'
     });
 
-    $('.wp3').each(function(i) { console.log(i);
+    $('.wp3').each(function() {
         $(this).waypoint(function() {
             $(this.element).addClass('animated fadeIn');
         }, {
@@ -242,3 +221,33 @@ $(document).ready(function() {
 
     $('.list-group-item', '.page-list-group').last().addClass('list-group-item-last');
 })
+
+
+// Extends jQuery with animateCss()
+
+$.fn.extend({
+  animateCss: function(animationName, callback) {
+    var animationEnd = (function(el) {
+      var animations = {
+        animation: 'animationend',
+        OAnimation: 'oAnimationEnd',
+        MozAnimation: 'mozAnimationEnd',
+        WebkitAnimation: 'webkitAnimationEnd',
+      };
+
+      for (var t in animations) {
+        if (el.style[t] !== undefined) {
+          return animations[t];
+        }
+      }
+    })(document.createElement('div'));
+
+    this.addClass('animated ' + animationName).one(animationEnd, function() {
+      $(this).removeClass('animated ' + animationName);
+
+      if (typeof callback === 'function') callback();
+    });
+
+    return this;
+  },
+});
