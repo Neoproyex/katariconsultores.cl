@@ -6,7 +6,7 @@
 
 	@parámetros: {
 		'hand' -> hand del selector,
-		'active' '0'. Determina si el contenido se muestra inicialmente activo.
+		'active' -> '0'. Determina si el contenido se muestra inicialmente activo.
 	}
 */
 ?>

@@ -13,7 +13,18 @@
 
 <?php
 
-	$page_bg = ($page_bg === "alternativo") ? "alternate-bg" : "normal-bg";
+	switch( $page_bg ) {
+		case "alternativo":
+			$page_bg = "alternate-bg";
+			break;
+
+		case "alternativo-gris":
+			$page_bg = "alternate-gray-bg";
+			break;
+
+		default:
+			$page_bg = "normal_bg";
+	}
 
 ?>
 

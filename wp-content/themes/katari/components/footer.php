@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-md-4 footer-branding">
 				<img class="footer-branding-logo" src="<?php echo get_template_directory_uri() ?>/img/katari-logo.png" alt="KATARI CONSULTORES" data-rjs="2"> <a>LOGO CORPORATIVO</a>
-				<p> <?php echo t__('Lema, marca o texto.') ?> <a href="#url"><em>Katari</em></a></p>
+				<p> <?php echo t__('Conocimiento, Desarrollo y Medio Ambiente.') ?> <a href="#"><em>Katari.</em></a></p>
 			</div>
 		</div>
 
@@ -44,15 +44,15 @@
 				<?php // Función t__( $text ) traduce la cadena del tema si es que polylang está activo. Si no, la regresa de vuelta. ?>
 
 				<ul class="footer-share">
-					<li><a href="#<?php echo strtolower( t__('Licencia') ) ?>"> <?php echo t__('Licencia') ?> </a></li>
+					<!-- <li><a href="#<?php echo strtolower( t__('Licencia') ) ?>"> <?php echo t__('Licencia') ?> </a></li> -->
 					<li><a href="#" class="share-trigger"><i class="fa fa-share"></i> <?php echo t__('Compartir') ?> </a></li>
 				</ul>
 
 				<div class="share-dropdown">
 					<ul>
-						<li><a href="#twitter" class="share-twitter"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#facebook" class="share-facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#linkedin" class="share-linkedin"><i class="fa fa-linkedin"></i></a></li>
+						<li><a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=www.katariconsultores.cl&title=Katari%20Consultores%20%7C%20Conocimiento,%20Desarrollo%20y%20Medio%20Ambiente.&summary=&source=" class="share-linkedin"><i class="fab fa-linkedin"></i></a></li>
+						<li><a target="_blank" href="https://twitter.com/home?status=www.katariconsultores.cl" class="share-twitter"><i class="fab fa-twitter"></i></a></li>
+						<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=www.katariconsultores.cl" class="share-facebook"><i class="fab fa-facebook"></i></a></li>
 					</ul>
 				</div>
 

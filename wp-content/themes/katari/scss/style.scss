@@ -105,7 +105,7 @@ textarea { outline: none; }
     display: table;
 
     width: 100%;
-    height: calc(100vh - 8.2em);
+    height: $header-height; //calc(100vh - 8.2em + 20px );
     margin-right: 10px;
 
     background: white;
@@ -556,8 +556,6 @@ Main Nav
 Header
 ========================================================================== */
 
-$header-height: calc(100vh - 8.2em + 20px);     //header.hero & .hero-bg height
-
 header.hero {
     position: relative;
     display: table;
@@ -799,6 +797,10 @@ section.wp-page.alternate-bg {
     div.content-container { color: $white; }
 }
 
+section.wp-page.alternate-gray-bg {
+    // code
+}
+
 // ....
 
 div.content.content-left {
@@ -935,20 +937,91 @@ $list-group-item-padding: 10px; // selector <a>
     }
 }
 
+/* ............... EQUIPO ............... */
+
+$expo-team-height: 170px;
+
+.expo-title {
+    margin-top: $expo-team-height + 30px;
+    margin-right: 15px;
+
+    &::after { content: "\f054"; }
+}
+
+.expo-title-secondary {
+    margin-top: 30px;
+    display: none;
+
+    &::after { content: "\f078"; }
+}
+
+.expo-title, .expo-title-secondary {
+    position: relative;
+    padding-right: 20px;
+
+    h2 { color: $black; word-wrap: break-word; }
+    h3 { color: $predominant; }
+
+    h2, h3 {
+        font-size: $serif-size + 0px;
+        text-transform: uppercase;
+    }
+
+    &::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 600;
+
+        width: auto;
+        height: 100%;
+
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.expo-team {
+    height: $expo-team-height;
+
+    
+    .carousel-cell {
+        min-width: $expo-team-height; /* change to width property on not 100% width images */
+        height: $expo-team-height;
+
+        display: block;
+        text-align: center; /* remove on not 100% width images */
+
+        margin-right: 0;
+        background: #CCC;
+
+        img {
+            width: $expo-team-height;
+            height: $expo-team-height;
+        }
+
+        &.is-selected-person {
+            background: #FFF;
+
+            -webkit-transition: ease 100ms;
+            transition: ease 100ms;
+        }
+    }
+}
+
+.expo-content {
+    margin-top: 30px;
+
+    .expo-content-grades p { font-size: $serif-size + 2px; }
+    .expo-content-bio { margin-top: 20px; }
+}
+
 /* ............... SERVICIOS ............... */
 
-section#servicios {
+section.servicios {
     #servicios-areas {
         height: 300px;
         border: 1px solid red;
     }
-}
-
-iframe.map {
-    width: 100%;
-    height: $top-img-height;
-
-    border: none;
 }
 
 /* ............... ALIANZAS ............... */
@@ -959,6 +1032,13 @@ iframe.map {
 }
 
 /* ............... CONTACTO ............... */
+
+iframe.map {
+    width: 100%;
+    height: $top-img-height;
+
+    border: none;
+}
 
 #contacto .side-content { padding-top: 75px; }
 
@@ -1487,6 +1567,8 @@ Responsive Media Queries
             padding-top: 0;
         }
     }
+
+    .expo-title-secondary { display: block; }
 
     footer .footer-container {
         padding-left: ($content-lr-padding-768 * 2) / 3;

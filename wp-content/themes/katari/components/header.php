@@ -92,7 +92,7 @@
 
 		<ul>
 			<li> <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a> </li>
-			<li> <a href="#" target="_blank"><i class="fab fa-tumblr"></i></a> </li>
+			<!-- <li> <a href="#" target="_blank"><i class="fab fa-tumblr"></i></a> </li> -->
 		</ul>
 
 	</div>

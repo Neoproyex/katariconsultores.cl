@@ -266,8 +266,131 @@ function c_shortcode( $atts, $content ) {
 	return ob_get_clean();
 }
 
-// End FUNCTIONS ..................................................................
+// [expoleft id=""]
+function expoleft_shortcode( $atts, $content = "" ) {
+	// Atts:
+	$atts = shortcode_atts(
+		array(
+			'id' => ''
+		),
+		$atts
+	);
 
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/expoleft.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [exporight] content [/exporight]
+function exporight_shortcode( $atts, $content = "" ) {
+	// Atts:
+	$atts = shortcode_atts(
+		array(
+			'id' => ''
+		),
+		$atts
+	);
+	
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/exporight.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [expoteam] content [/expoteam]
+function expoteam_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/expoteam.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [person name="" rol="" hand="" active=""]
+function person_shortcode( $atts, $url_img ) {
+	// Atts:
+	$atts = shortcode_atts(
+		array(
+			'name' => '',
+			'rol' => '',
+			'hand' => '',
+			'active' => '0'
+		),
+		$atts
+	);
+
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/person.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [expocontent] content [/expocontent]
+function expocontent_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/expocontent.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [profile hand=""] content [/profile]
+function profile_shortcode( $atts, $content ) {
+	// Atts:
+	$atts = shortcode_atts(
+		array(
+			'hand' => '',
+			'active' => '0'
+		),
+		$atts
+	);
+
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/profile.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [grades] content [/grades]
+function grades_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/grades.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// [bio] content [/bio]
+function bio_shortcode( $atts, $content = "" ) {
+	// Transforma a salida html pura:
+	ob_start();
+
+		include(ROOT . 'templates/shortcodes/bio.php');
+
+	// Retorna salida html pura.
+	return ob_get_clean();
+}
+
+// End FUNCTIONS ..................................................................
 
 
 // REGISTER ........................................................
@@ -294,6 +417,14 @@ add_shortcode( 'listcontrol', 'listcontrol_shortcode' );
 add_shortcode( 'control', 'control_shortcode' );
 add_shortcode( 'listcontent', 'listcontent_shortcode' );
 add_shortcode( 'c', 'c_shortcode' );
+add_shortcode( 'expoleft', 'expoleft_shortcode' );
+add_shortcode( 'exporight', 'exporight_shortcode' );
+add_shortcode( 'expoteam', 'expoteam_shortcode' );
+add_shortcode( 'person', 'person_shortcode' );
+add_shortcode( 'expocontent', 'expocontent_shortcode' );
+add_shortcode( 'profile', 'profile_shortcode' );
+add_shortcode( 'grades', 'grades_shortcode' );
+add_shortcode( 'bio', 'bio_shortcode' );
 
 
 /*	Sección para registrar cadenas de tema "adicionales" para traducción
@@ -305,10 +436,10 @@ if( function_exists('pll_register_string') ) {
 		propias del plugin traductor a usar.
 	*/
 	pll_register_string( 'Idioma', 'IDIOMA', 'Katari' );
-	pll_register_string( 'Marca', 'Lema, marca o texto.', 'Katari' );
+	pll_register_string( 'Slogan', 'Conocimiento, Desarrollo y Medio Ambiente.', 'Katari' );
 	pll_register_string( 'Derechos', 'Derechos reservados', 'Katari' );
 	pll_register_string( 'Compartir', 'Compartir', 'Katari' );
-	pll_register_string( 'Licencia', 'Licencia', 'Katari' );
+	//pll_register_string( 'Licencia', 'Licencia', 'Katari' );
 	pll_register_string( 'Búsqueda', 'Ingresa lo que buscas...', 'Katari' );
 
 }

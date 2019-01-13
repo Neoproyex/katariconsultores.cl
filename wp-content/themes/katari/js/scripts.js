@@ -220,6 +220,76 @@ $(document).ready(function() {
     /***************** Fixes some shit ****************************/
 
     $('.list-group-item', '.page-list-group').last().addClass('list-group-item-last');
+
+    // delete line on not 100% width images
+    $('.expo-team').find('.carousel-cell').css( 'width', 100 / $('.carousel-cell', '.expo-team').length + "%" )
+
+     /***************** Expo-team functions (equipo) ****************************/
+
+
+    $('.expo-team').each(function() {
+        // Agrega datos persona seleccionada por defecto en expo-title al cargar página:
+        var selected = $('.is-selected-person', this)
+        var title_id = '#' + $(this).parent().attr('id') + '-title'
+
+        $('h2', title_id).text( selected.data('name') )
+        $('h3', title_id).text( selected.data('rol') )
+
+        $(this).parent().find('.expo-title-secondary h2').text( selected.data('name') )
+        $(this).parent().find('.expo-title-secondary h3').text( selected.data('rol') )
+
+        // Agrega elementos <a> gateway para paso de eventosentre plugin carousel y bootstrap tab:
+        // no .next() para prevenir errores por elementos <br/> colados en wordpress.
+        var selector = $(this).parent().find('.expo-selector')
+
+        $('.carousel-cell', this).each(function() {
+            var attrs = {
+                id: $(this).data('handler').replace('#', ''),
+                href: $(this).data('handler').replace("handler", "profile")
+            }
+
+            selector.append( $('<a>').attr(attrs) )
+        })
+    })
+
+    // Flickity functions:
+    $('.expo-team').flickity({
+        cellAlign: 'left',
+        contain: true,
+        pageDots: false
+    }).on( 'staticClick.flickity', function( e, p, target, index ) {
+        if( !$(target).hasClass('is-selected-person') ) {
+            var handler = $(target).data('handler')
+
+            // Quita clases anteriores seleccionadas y selecciona la nueva.
+            $('.carousel-cell', this).removeClass('is-selected-person')
+            $(target).addClass('is-selected-person')
+
+            // Pone nombre y rol de la persona seleccionada.
+            var expo_title = '#' + $(this).parent().attr('id') + '-title'
+            var expo_title_secondary = $(this).parent().find('.expo-title-secondary')
+
+            var name = $(target).data('name')
+            var rol = $(target).data('rol')
+     
+            $('h2, h3', expo_title).fadeOut(0, function() {
+                $('h2', expo_title).text( name )
+                $('h3', expo_title).text( rol )
+            })
+
+            $('h2, h3', expo_title_secondary).fadeOut(0, function() {
+                $('h2', expo_title_secondary).text( name )
+                $('h3', expo_title_secondary).text( rol )
+            })
+
+            $('h2, h3', expo_title).fadeIn(100)
+            $('h2, h3', expo_title_secondary).fadeIn(100)
+
+            $(handler).tab('show')
+            $(this).flickity('select', index)
+        }
+    })
+
 })
 
 
