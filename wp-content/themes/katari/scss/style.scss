@@ -170,6 +170,8 @@ textarea { outline: none; }
     text-align: center;
 }
 
+header.hero .flickity-page-dots { visibility: hidden; }
+
 .flickity-page-dots .dot {
     display: block;
 
@@ -240,6 +242,8 @@ Main Nav
     position: relative;
     background-color: $base; //default $white;
     border-bottom: solid 5px $predominant; //$white, $predominant or $base for none
+
+    .logo, .primary-nav-wrapper { visibility: hidden; }
 
     .logo {
         display: inline-block;
@@ -349,7 +353,7 @@ Main Nav
 
 .secondary-nav-wrapper {
     display: inline-block;
-    padding: 35px 30px;
+    padding: 0px 30px;
 
     ul.secondary-nav {
         li {
@@ -360,7 +364,7 @@ Main Nav
 
             &.language {
                 position: relative;
-                padding: 10px 20px 10px 0;
+                padding: 0px 20px 0px 0;
 
                 //border-right: solid 1px #505c66;
 
@@ -368,7 +372,7 @@ Main Nav
                     position: relative;
                     color: $white;
 
-                    padding-bottom: 10px;
+                    padding-bottom: 0px;
                     text-decoration: none;
                 }
 
@@ -377,7 +381,7 @@ Main Nav
 
                     //width: 100px;
                     margin-left: 0px;
-                    padding-bottom: 10px;
+                    padding-bottom: 2px;
                     text-transform: uppercase;
 
                     -webkit-transition: all 300ms;
@@ -582,7 +586,13 @@ header.hero {
             padding-right: $padding-between;
             margin: auto 0 auto 0;
 
-            h1 { font-size: 45px; color: $white; text-transform: uppercase; text-shadow: $text-shadow; }
+            h1 {
+                font-size: 45px;
+                color: $white;
+                text-transform: uppercase;
+                text-shadow: $text-shadow;
+                word-wrap: break-word;
+            }
         }
 
         .hero-intro-text {
@@ -625,7 +635,7 @@ header.hero {
 }
 
 div.social {
-
+    visibility: hidden;
     position: absolute;
     top: $corner-dist;
     right: $corner-dist;
@@ -658,6 +668,7 @@ div.social {
 }
 
 div.mouse-container {
+    visibility: hidden;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -798,10 +809,15 @@ section.wp-page.alternate-bg {
 }
 
 section.wp-page.alternate-gray-bg {
-    // code
+    div.title-container {
+        border-bottom-color: $lines-color-alternative-gray;
+        .title h1 { }
+    }
+    
+    h2 { color: $black; }
+    h3 { /* color: $white; */ }
+    div.content-container { /* color: $white; */ }
 }
-
-// ....
 
 div.content.content-left {
     padding-left: $content-lr-padding;
@@ -891,6 +907,7 @@ $list-group-item-padding: 10px; // selector <a>
             // rules.
 
             .list-group-item { // <a> element
+                background-color: transparent;
                 text-transform: uppercase;
                 border: none;
                 border-bottom: 1px solid $lines-color-primary;
@@ -937,9 +954,18 @@ $list-group-item-padding: 10px; // selector <a>
     }
 }
 
+section.wp-page.alternate-bg .list-group-item {
+    color: $white;
+    &.active { color: $predominant !important; }
+}
+
+section.wp-page.alternate-gray-bg .list-group-item {
+    border-bottom: 1px solid $lines-color-alternative-gray !important;
+}
+
 /* ............... EQUIPO ............... */
 
-$expo-team-height: 170px;
+$expo-team-height: 160px;
 
 .expo-title {
     margin-top: $expo-team-height + 30px;
@@ -980,6 +1006,13 @@ $expo-team-height: 170px;
     }
 }
 
+section.wp-page.alternate-bg {
+    .expo-title, .expo-title-secondary {
+        h2 { color: $white; }
+        h3 { color: $predominant; }
+    }
+}
+
 .expo-team {
     height: $expo-team-height;
 
@@ -992,21 +1025,34 @@ $expo-team-height: 170px;
         text-align: center; /* remove on not 100% width images */
 
         margin-right: 0;
-        background: #CCC;
+
+        -webkit-transition: ease 100ms;
+        transition: ease 100ms;
 
         img {
             width: $expo-team-height;
             height: $expo-team-height;
         }
 
-        &.is-selected-person {
-            background: #FFF;
+        div.overlay {
+            background: #000;
 
-            -webkit-transition: ease 100ms;
-            transition: ease 100ms;
+            width: 100%;
+            height: $expo-team-height;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            opacity: .4;
         }
+
+        &.is-selected-person div.overlay { opacity: 0; }
     }
 }
+
+section.alternate-gray-bg .expo-team .carousel-cell { background: #C9CACB; }
+section.alternate-normal-bg .expo-team .carousel-cell { background: #FFF; }
 
 .expo-content {
     margin-top: 30px;
@@ -1040,12 +1086,14 @@ iframe.map {
     border: none;
 }
 
-#contacto .side-content { padding-top: 75px; }
+section.contacto .side-content { padding-top: 75px; }
 
 /* Formulario de contacto */
 $error-text-color: $predominant;
 
 .wpcf7 {
+    margin-top: $section-padding !important; /* @overwrite original */
+
     form { position: relative; }
 
     input[type="text"],
@@ -1056,6 +1104,7 @@ $error-text-color: $predominant;
     input[type="email"],
     input[type="tel"],
     textarea {
+        background: transparent;
         border: 1px solid $lines-color-primary;
         padding: 2px 5px 2px 5px;
         margin-top: 5px;
@@ -1073,9 +1122,18 @@ $error-text-color: $predominant;
     input[type="email"] { border-right: none; }
     input[type="tel"] { border-left: none; }
    
+   /* Span mensajes error al lado de los campos */
     input + span,
-    textarea + span { position: absolute; right: 5px; } 
-    textarea + span { top: 5px; } 
+    textarea + span {
+        position: absolute;
+        right: 5px;
+
+        font-size: 12px !important;
+    }
+
+    input + span { top: -2px; }
+
+    span.wpcf7-form-control-wrap:first-child input + span {  }
 
     input[type="submit"] {
         border: none;
@@ -1125,18 +1183,51 @@ $error-text-color: $predominant;
             }
         }
     }
+    
+    .wpcf7-not-valid-tip { display: none; }
+    .wpcf7-not-valid {
+        box-shadow: 0px 0px 1px 0px rgba(2500, 0, 0, 0.5);
+        border: none !important;
+    }
 
     .wpcf7-not-valid-tip, .wpcf7-validation-errors {
         color: $error-text-color;
         font-size: 13px;
     }
 
+    .wpcf7-validation-errors { border: none; }
+
     .wpcf7-response-output {
-        margin-top: $section-padding;
+        margin: $section-padding 0 0 0;
+        padding: 0 !important;
         font-weight: bold;
 
         &.wpcf7-display-none { display: none; }
     }
+}
+
+section.contacto .ajax-loader { position: absolute; top: 300px; left: 60px; }
+
+section.wp-page.alternate-gray-bg .wpcf7 {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        border: 1px solid $lines-color-alternative-gray;
+    }
+}
+
+section.wp-page.alternate-bg .wpcf7 {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea { color: $white; }
+}
+
+section.wp-page.alternate-bg .wpcf7,
+section.wp-page.alternate-gray-bg .wpcf7 {
+    input[type="email"] { border-right: none; }
+    input[type="tel"] { border-left: none; }
 }
 
 
@@ -1418,9 +1509,8 @@ Responsive Media Queries
     .secondary-nav-wrapper li a::before { display: none; }
 
     .secondary-nav-wrapper ul li.language {
-        //margin-top: 30px;
-
         a {
+            padding-bottom: 0;
             font-weight: 600;
             display: block;
             color: $white;
@@ -1446,6 +1536,27 @@ Responsive Media Queries
 
 
 @media screen and (max-width: 991px) {
+    header.hero {
+        .row {
+            justify-content: center;
+
+            /**/
+                $space-between: 10px;
+            /**/
+
+            .hero-intro-title { text-align: center; padding-right: 0; }
+            .hero-intro-text {
+                border-left: none;
+                border-top: 1px solid $white;
+                max-width: 100%;
+                text-align: center;
+                padding-left: 0 !important;
+                margin-top: $space-between;
+                padding-top: $space-between;
+            }
+        }
+    }
+
     div.title-container .title { padding-left: $content-lr-padding-991; }
     
     div.content-container {
@@ -1475,6 +1586,8 @@ Responsive Media Queries
 
 /* Sólo una excepción. Arregla iconos contacto set. */
 @media screen and (max-width: 901px) {
+    header.hero .container { max-width: 640px; }
+
     .set {
         .icon { display: none; }
     }
@@ -1483,28 +1596,7 @@ Responsive Media Queries
 /* --------------------------------------------------------------------- */
 
 
-@media screen and (max-width: 768px) {
-    header.hero {
-        .row {
-            justify-content: center;
-
-            /**/
-                $space-between: 10px;
-            /**/
-
-            .hero-intro-title { text-align: center; padding-right: 0; }
-            .hero-intro-text {
-                border-left: none;
-                border-top: 1px solid $white;
-                max-width: 100%;
-                text-align: center;
-                padding-left: 0 !important;
-                margin-top: $space-between;
-                padding-top: $space-between;
-            }
-        }
-    }
-
+@media screen and (max-width: 767px) {
     section.wp-page {
         div.top-image { height: 200px; }
     }
@@ -1579,7 +1671,7 @@ Responsive Media Queries
     .set .icon { display: block; }
     .set + .set { margin-top: 0; }
 
-    #contacto .side-content {
+    section.contacto .side-content {
         padding-top: 0;
         padding-left: $content-lr-padding-768 !important;
     }
@@ -1707,7 +1799,7 @@ Responsive Media Queries
         padding-right: ($content-lr-padding-640 * 2) / 3;
     }
 
-    #contacto .side-content {
+    section.contacto .side-content {
         padding-left: $content-lr-padding-640 !important;
         padding-right: $content-lr-padding-640 !important;
     }
@@ -1736,8 +1828,8 @@ Responsive Media Queries
     .mouse-container { display: none; }
 
     header.hero h1 {
-        font-size: 40px;
-        line-height: 40px;
+        font-size: 40px !important;
+        line-height: 40px !important;
     }
 
     .has-padding { padding: 80px 0; }
@@ -1809,12 +1901,14 @@ Responsive Media Queries
         input[type="submit"] { padding: 9px; }
     }
 
-    #contacto {
+    section.contacto {
         .side-content { padding-left: $content-lr-padding-480 !important; }
         input[type="tel"] { display: block; }
 
         input[type="email"],
         input[type="tel"] { width: 100%; border: 1px solid $lines-color-primary; }
+
+        .ajax-loader { top: 353px; left: 63px; }
     }
 
     section.wp-page {
@@ -1827,7 +1921,6 @@ Responsive Media Queries
     }
 
     .header-nav-wrapper .logo { width: 250px; }
-    header.hero h1 { font-size: 40px; }
 
     .navicon {
         padding: 52px 35px;
@@ -1881,7 +1974,7 @@ Responsive Media Queries
         padding-right: ($content-lr-padding-320 * 2) / 3;
     }
 
-    #contacto .side-content { padding-left: $content-lr-padding-320 !important; }
+    section.contacto .side-content { padding-left: $content-lr-padding-320 !important; }
 }
 
 

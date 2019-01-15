@@ -21,5 +21,6 @@
 ?>
 
 <div data-handler="<?php echo $atts['hand'] ?>" data-name="<?php echo $atts['name'] ?>" data-rol="<?php echo $atts['rol'] ?>" class="carousel-cell <?php echo $atts['active'] ?>">
+	<div class="overlay"> <!-- overlay image --> </div>
 	<img src="<?php echo $url_img ?>"/>
 </div>

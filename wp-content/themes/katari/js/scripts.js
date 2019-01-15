@@ -18,7 +18,23 @@ $(document).ready(function() {
             .animateCss('fadeInUp');
     }
 
-    $('.carousel').on( 'ready.flickity', carousel_transition );
+    $('.carousel').on( 'ready.flickity', function() {
+        carousel_transition();
+
+        if( $('.navicon').css('visibility') == 'hidden' )
+            var nav = '.primary-nav-wrapper'
+        else
+            var nav = '.navicon'
+
+        $('.logo, ' + nav)
+            .css('visibility', 'visible')
+            .animateCss('fadeInUp', function() {
+                $('.social, .mouse-container, .flickity-page-dots')
+                    .css('visibility', 'visible')
+                    .animateCss('fadeIn');
+            });
+    });
+
     $('.carousel').on( 'change.flickity', carousel_transition );
 
     $('.carousel').flickity( jQuery('.carousel').data('flickity-options') );
@@ -79,9 +95,11 @@ $(document).ready(function() {
     /* -----------------------------------------------------*/
 
 
-    /***************** Smooth Scroll ******************/
+    /***************** <a> Smooth Scroll ******************/
 
-    $('a[href*="#"]:not([href="#"]):not([class="dropdown-toggle"])', '.header-nav-wrapper, .footer-primary-nav, .mouse-container').click(function() {
+    var a_context = '.header-nav-wrapper, .mouse-container, .footer-primary-nav, .footer-branding';
+
+    $('a[href*="#"]:not([href="#"]):not([class="dropdown-toggle"])', a_context).click(function() {
         if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
 
             var target = $(this.hash);
@@ -289,6 +307,16 @@ $(document).ready(function() {
             $(this).flickity('select', index)
         }
     })
+
+    var wpcf7 = document.querySelector( '.wpcf7' )
+ 
+    wpcf7.addEventListener( 'wpcf7invalid', function( event ) {
+        $this_wpcf7 = this;
+
+        $('.wpcf7-not-valid', $this_wpcf7).animateCss('shake', function() {
+            //$('.wpcf7-not-valid-tip', $this_wpcf7).fadeIn()
+        })
+    }, false )
 
 })
 

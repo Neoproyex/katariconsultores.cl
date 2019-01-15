@@ -91,7 +91,7 @@
 	<div class="social">
 
 		<ul>
-			<li> <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a> </li>
+			<li> <a href="https://www.linkedin.com/company/katari-consultores/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a> </li>
 			<!-- <li> <a href="#" target="_blank"><i class="fab fa-tumblr"></i></a> </li> -->
 		</ul>
 

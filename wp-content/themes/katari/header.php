@@ -23,9 +23,9 @@
 	<!-- meta-data -->
 	<meta charset="<?php bloginfo('charset') ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title><?php bloginfo('name') ?> | <?php bloginfo('description') ?></title>
-	<meta name="description" content="Descripción de la página">
-	<meta name="keywords" content="palabras claves de la página" />
+	<title><?php bloginfo('name') ?></title>
+	<meta name="description" content="<?php bloginfo('description') ?>">
+	<meta name="keywords" content="Katari, Antofagasta Legal, Consultores Antofagasta, Servicios Legales, Medio Ambiente, ERNC, Renovables, Empresas Norte" />
 	<meta name="author" content="Neoproyex" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- end meta-data -->
@@ -75,7 +75,7 @@
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>"> <!-- style.css -->
 	<!-- end stylesheets -->
 
-	<?php //wp_head() ?>
+	<?php wp_head() ?>
 
 </head>
 

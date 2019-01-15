@@ -12,9 +12,9 @@
 
 	<div class="footer-container wp3">
 		<div class="row">
-			<div class="col-md-4 footer-branding">
+			<div class="col-md-12 footer-branding">
 				<img class="footer-branding-logo" src="<?php echo get_template_directory_uri() ?>/img/katari-logo.png" alt="KATARI CONSULTORES" data-rjs="2"> <a>LOGO CORPORATIVO</a>
-				<p> <?php echo t__('Conocimiento, Desarrollo y Medio Ambiente.') ?> <a href="#"><em>Katari.</em></a></p>
+				<p> <?php echo t__('Conocimiento, Desarrollo y Medio Ambiente.') ?> <a href="#<?php echo $home_page? $home_page->post_name : 'top' ?>"><em>Katari Consultores.</em></a></p>
 			</div>
 		</div>
 
