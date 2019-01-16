@@ -21,12 +21,13 @@ $(document).ready(function() {
     $('.carousel').on( 'ready.flickity', function() {
         carousel_transition();
 
+        // Determina si va añadir efecto aparición a menu desktop o móbil.
         if( $('.navicon').css('visibility') == 'hidden' )
             var nav = '.primary-nav-wrapper'
         else
             var nav = '.navicon'
 
-        $('.logo, ' + nav)
+        $('.logo img, ' + nav)
             .css('visibility', 'visible')
             .animateCss('fadeInUp', function() {
                 $('.social, .mouse-container, .flickity-page-dots')

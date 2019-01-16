@@ -110,7 +110,7 @@ textarea { outline: none; }
 
     background: white;
 
-    overflow: hidden !important;
+    overflow: hidden !important; /* problem on iPhone 5/SE */
 
     .carousel-img {
         width: 100%;
@@ -243,7 +243,7 @@ Main Nav
     background-color: $base; //default $white;
     border-bottom: solid 5px $predominant; //$white, $predominant or $base for none
 
-    .logo, .primary-nav-wrapper { visibility: hidden; }
+    .logo img, .primary-nav-wrapper { visibility: hidden; }
 
     .logo {
         display: inline-block;
@@ -1534,6 +1534,68 @@ Responsive Media Queries
 
 /* --------------------------------------------------------------------- */
 
+@media screen and (min-width: 2160px) {
+    div.title-container .title { padding-left: $content-lr-padding-2160; }
+    
+    div.content-container {
+        .content:not(.content-left) { padding-right: $content-lr-padding-2160 !important; }
+        .content-left, .side, .side-content { padding-left: $content-lr-padding-2160 !important; }
+
+        .content-left { padding-right: $content-padding-between-2160 !important; }
+        .content-right { padding-left: $content-padding-between-2160 !important; }
+    }
+
+    .page-list-group {
+        .list-group-item { padding-left: $content-lr-padding-2160 !important; }
+        .list-group-content { padding-right: $content-lr-padding-2160; }
+    }
+
+    footer .footer-container {
+        padding-left: ($content-lr-padding-2160 * 2) / 3;
+        padding-right: ($content-lr-padding-2160 * 2) / 3;
+    }
+}
+
+@media screen and (min-width: 1738px) and (max-width: 2160px) {
+    div.title-container .title { padding-left: $content-lr-padding-1738; }
+    
+    div.content-container {
+        .content:not(.content-left) { padding-right: $content-lr-padding-1738 !important; }
+        .content-left, .side, .side-content { padding-left: $content-lr-padding-1738 !important; }
+    }
+
+    .page-list-group {
+        .list-group-item { padding-left: $content-lr-padding-1738 !important; }
+        .list-group-content { padding-right: $content-lr-padding-1738; }
+    }
+
+    footer .footer-container {
+        padding-left: ($content-lr-padding-1738 * 2) / 3;
+        padding-right: ($content-lr-padding-1738 * 2) / 3;
+    }
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1738px) {
+    div.title-container .title { padding-left: $content-lr-padding-1400; }
+    
+    div.content-container {
+        .content:not(.content-left) { padding-right: $content-lr-padding-1400 !important; }
+        .content-left, .side, .side-content { padding-left: $content-lr-padding-1400 !important; }
+    }
+
+    .page-list-group {
+        .list-group-item { padding-left: $content-lr-padding-1400 !important; }
+        .list-group-content { padding-right: $content-lr-padding-1400; }
+    }
+
+    footer .footer-container {
+        padding-left: ($content-lr-padding-1400 * 2) / 3;
+        padding-right: ($content-lr-padding-1400 * 2) / 3;
+    }
+}
+
+/* --------------------------------------------------------------------- */
+
 
 @media screen and (max-width: 991px) {
     header.hero {
@@ -1934,6 +1996,11 @@ Responsive Media Queries
 
 
 @media screen and (max-width: 320px) {
+    header.hero h1 {
+        font-size: 35px !important;
+        line-height: 35px !important;
+    }
+
     div.content-container {
         .content {
             padding-left: $content-lr-padding-320 !important;
