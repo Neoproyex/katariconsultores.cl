@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
     var fixed_menu = false
@@ -50,7 +49,7 @@ $(document).ready(function() {
 
     /***************** Search Component ******************/
 
-    $(".show-search").on("click", function() {
+    /* $(".show-search").on("click", function() {
         $(".search-wrapper").addClass("is-visible");
     });
 
@@ -63,7 +62,7 @@ $(document).ready(function() {
         $(this).addClass("is-selected");
     });
 
-    /*$('.search-wrapper input').keypress(function(e) {
+    $('.search-wrapper input').keypress(function(e) {
         if (e.which === 13) { //Enter key pressed
             window.alert("Ready for implementation.");
         }
