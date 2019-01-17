@@ -22,6 +22,19 @@ function t__( $text ) {
 		return $text;
 }
 
+// Elimina saltos de líneas y párrafos vacíos entre shortcodes.
+function wp_fix_shortcodes( $content ){   
+    $array = array (
+        '<p>[' => '[', 
+        ']</p>' => ']', 
+        ']<br />' => ']'
+    );
+
+    $content = strtr( $content, $array );
+
+    return $content;
+}
+
 // [slideritem texto1="" texto2="" boton="" enlace=""] url_imagen [/slideritem]
 function slideritem_shortcode( $atts, $content = '' ) {
 	// Atts:
@@ -398,6 +411,9 @@ function bio_shortcode( $atts, $content = "" ) {
 // Registramos menú principal.
 if( function_exists('register_nav_menu') )
 	register_nav_menu( MAIN_MENU, 'Menú principal' );
+
+// Agrega filtro que elimina salto de línea y párrafos en blancos entre shortcodes.
+add_filter( 'the_content', 'wp_fix_shortcodes' );
 
 // Registramos shortcode 'slideritem'.
 add_shortcode( 'slideritem', 'slideritem_shortcode' );

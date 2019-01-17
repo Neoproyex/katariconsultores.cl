@@ -1201,6 +1201,7 @@ $error-text-color: $predominant;
         margin: $section-padding 0 0 0;
         padding: 0 !important;
         font-weight: bold;
+        border: none !important;
 
         &.wpcf7-display-none { display: none; }
     }
