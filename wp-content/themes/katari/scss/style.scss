@@ -13,6 +13,12 @@
 
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+/* Adobe Fonts */
+@import url("https://use.typekit.net/ytr6wjw.css");
 
 /* Imports */
 @import 'compass';
@@ -190,7 +196,14 @@ Waypoints
 
 .wp1,
 .wp2,
-.wp3 { visibility: hidden; }
+.wp3,
+.wp4,
+.wp5,
+.wp6,
+.wp7,
+.wp8,
+.wp9,
+.wp10 { visibility: hidden; }
 
 .wp1 {
     -webkit-animation-delay: .5s;
