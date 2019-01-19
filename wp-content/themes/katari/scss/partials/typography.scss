@@ -1,100 +1,84 @@
 // Typography partial
 @import 'colors'; // Fonts
+
 $sans-serif: Raleway, Verdana, Arial, sans-serif;
-$serif: Montserrat, Georgia, 'Times New Roman', serif; // Weights
+$h1-family: Raleway,'Open Sans', Raleway, Verdana, sans-serif;
+$h2-family: Raleway,myriad-pro, Raleway, Verdana, sans-serif;
+$h3-family: Raleway,myriad-pro, Raleway, Verdana, sans-serif;
+$serif: Raleway,myriad-pro, Raleway, Verdana, sans-serif;
+
 $light: 300;
 $normal: 400;
 $semibold: 500;
 $bold: 600;
 $strong: 700; // Styles
 $italic: italic; // Sizes
+
 // Headings
-$font-size-h1: 45px;
-$font-size-h2: 36px;
-$font-size-h3: 20px;
+$serif-size: 14px;
+$font-size-h1: 22px;
+$font-size-h2: 14px;
+$font-size-h3: 12px;
 $font-size-h4: 15px;
 $font-size-h5: 13px; // Other
-$crew-h2: 15px;
-$article-h2: 20px;
+
 $font-size-base: 15px;
 $font-size-footer: 14px;
-$font-size-nav: 13px;
+$font-size-nav: 14px;
 $font-size-search-input: 13px;
 $font-size-tag: 13px;
 $font-size-smalltext: 13px;
 $font-size-button: 13px; // Responsive Sizes
+
 $responsive-h1: 40px; // Line height
 $line-height-h1: 68px;
-$base-line-height: 27px;
+$base-line-height: 20px;
 $line-height-article-header: 30px; // Styles
+
+// Others
+$text-shadow: 1px 0px 0px #000;
+
+/*  social icons size  */
+        $size: 30px;
+        $corner-dist: 30px;
+/* ------------------- */
+
+
 /* ==========================================================================
 Typography
 ========================================================================== */
-p
-{
-    font-size: $font-size-base;
+
+p {
+    font-family: $sans-serif;
+    font-size: $serif-size;
     line-height: $base-line-height;
-
-    padding-bottom: 15px;
-
-    color: $slate;
+    font-weight: $semibold;
 }
-h1
-{
+
+h1 {
+    font-family: $h1-family;
     font-size: $font-size-h1;
-    font-weight: $light;
+    font-weight: $bold;
     line-height: $line-height-h1;
 }
-h2
-{
+
+h2 {
+    font-family: $h2-family;
     font-size: $font-size-h2;
-    font-weight: $light;
-
-    color: $white;
+    font-weight: $bold;
+    color: $predominant;
 }
-h3
-{
+
+h3 {
+    font-family: $h3-family;
     font-size: $font-size-h3;
-    line-height: 32px;
-
-    margin-bottom: 20px;
-
+    line-height: $font-size-h3 + 9px; // +offset
     color: $dark-grey;
 }
-h4
-{
-    font-size: $font-size-h4;
-    font-weight: $bold;
 
-    margin: 7px 0 65px 60px;
-
-    text-transform: uppercase;
-    &:after
-    {
-        display: block;
-
-        width: 30px;
-        height: 2px;
-        margin-top: 15px;
-
-        content: '';
-
-        background-color: $teal;
-    }
-}
-h5
-{
-    font-size: $font-size-h5;
-    font-weight: $bold;
-
-    display: inline-block;
-
-    text-transform: uppercase;
-
-    color: $slate;
-}
-.bold-italic
-{
+.bold-italic {
     font-weight: $bold;
     font-style: $italic;
 }
+
+strong { font-weight: bold; }

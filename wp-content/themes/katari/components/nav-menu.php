@@ -16,13 +16,13 @@
 */
 ?>
 
-<div class="container-fluid fixed">
+<div class="container-fluid menu-bar">
 
 	<div class="row d-block">
 		<div class="header-nav-wrapper">
 			<div class="logo">
 				<a href="#<?php echo $home_page? $home_page->post_name : 'top' ?>"> <!-- "top" -->
-					<img src="<?php echo get_template_directory_uri() ?>/img/synthetica-logo.png" alt="LOGO CORPORATIVO" data-rjs="2">
+					<img src="<?php echo get_template_directory_uri() ?>/img/katari-logo.png" alt="KATARI CONSULTORES" data-rjs="2">
 				</a>
 			</div>
 
@@ -75,7 +75,7 @@
 							        	$parentID = $menuitem->ID; // Se guarda ID para comparar luego con subitems.
 							        	// Si la siguiente página no es submenú, entonces la página actual se muestra en el menú como item único. Si SHOW_SUBMENUS está desactivado, entonces la página con submenú se muestra como si no lo tuviera.
 
-							        	if( array_key_exists($c+1, $menuItems) && ($menuItems[$c+1]->menu_item_parent == 0 || !SHOW_SUBMENUS) ): ?>
+							        	if( !array_key_exists($c+1, $menuItems) || ( array_key_exists($c+1, $menuItems) && $menuItems[$c+1]->menu_item_parent == 0 ) || !SHOW_SUBMENUS ): ?>
 
 											<li>
 										        <a href="<?php echo $href ?>"<?php echo $target ?>>
@@ -106,7 +106,7 @@
 						            	<a class="dropdown-item" href="<?php echo $href ?>"<?php echo $target ?>>
 						            		<?php echo $menuitem->title ?></a> <?php
 
-										if ( $menuItems[$c+1]->menu_item_parent != $parentID && $hasSubmenu ):
+										if ( ( array_key_exists($c+1, $menuItems) && $menuItems[$c+1]->menu_item_parent != $parentID ) && $hasSubmenu ):
 
 											$hasSubmenu = false; ?>
 						        			</div> <?php
@@ -138,8 +138,12 @@
 						<li class="language">
 							<?php
 								// Si está activada opción de multilenguaje y si las funciones de Polylang existen, se carga selector de idiomas.
-								if( function_exists('pll_the_languages') )
-									pll_the_languages( array('dropdown' => 1) );
+								if( function_exists('pll_the_languages') ): ?>
+
+									<a class="idioma"><?php echo t__('IDIOMA') ?>/</a><?php
+									pll_the_languages( array('dropdown' => 1, 'display_names_as' => 'slug') );
+									
+								endif;
 							?>
 						</li>
 						<li class="search"><a href="#search" class="show-search"><i class="fa fa-search"></i></a></li>

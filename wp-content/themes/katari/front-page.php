@@ -10,6 +10,15 @@
 	$nav_menu = get_nav_menu_locations(); // array() de menús
 	$menuItems = wp_get_nav_menu_items( $nav_menu[MAIN_MENU] ); // menu-principal
 
+	/* 	Obtenemos página de inicio mediante metadata referente a página de inicio. [0]: primer elemento del resultado.
+		Página de 'inicio' es el header (slider).
+	*/
+	$home_page = get_posts(array(
+		'meta_key'		=> TYPE_METADATA_KEY,
+		'meta_value'	=> TYPE['inicio'],
+		'post_type'		=> 'page'
+	))[0];
+
 ?>
 
 

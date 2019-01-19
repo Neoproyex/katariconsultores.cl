@@ -32,6 +32,9 @@
 				/* 	Se captura metadato de página con clave TYPE_METADATA_KEY (por defecto 'tipo')
 					que sirve para identificar el tipo de página (en el caso de que se quiera personalizar) */
 				$page_type = get_post_meta( $page->ID, TYPE_METADATA_KEY, true );
+
+				// Se captura metadato para fondo alternativo.
+				$page_bg = get_post_meta( $page->ID, BG_METADATA_KEY, true );
 				
 				// Se identifica cuál es la página.
 				switch( $page_type ):
@@ -40,45 +43,18 @@
 						$p-- ; // 'inicio' no cuenta como página pero es necesario filtrarla. Decrementa $p.
 						break; // omite 'inicio', porque es el slider. Nos aseguramos de omitiarlo.
 
-					case TYPE['empresa']:
 
-						// SECCION: Empresa -->
-							include(ROOT . 'templates/pages/empresa.php');
-						// FIN SECCION: Empresa -->
+					/* 	FORMATO PARA INCLUÍR TEMPLATE PERSONALIZADO DE SECCIÓN.
 
-						break;
+					case TYPE['tipo-de-página']:
 
-					case TYPE['equipo']:
-
-						// SECCION: Equipo -->
-							include(ROOT . 'templates/pages/equipo.php');
-						// FIN SECCION: Equipo -->
+						// SECCION: nombre-página -->
+							include(ROOT . 'templates/pages/tipo-de-página.php');
+						// FIN SECCION: nombre de página -->
 
 						break;
 
-					case TYPE['servicios']:
-
-						// SECCION: Servicios -->
-							include(ROOT . 'templates/pages/servicios.php');
-						// FIN SECCION: Servicios -->
-
-						break;
-
-					case TYPE['alianzas']:
-
-						// SECCION: Alianzas -->
-							include(ROOT . 'templates/pages/alianzas.php');
-						// FIN SECCION: Alianzas -->
-
-						break;
-
-					case TYPE['contacto']:
-
-						// SECCION: Contacto -->
-							include(ROOT . 'templates/pages/contacto.php');
-						// FIN SECCION: Contacto -->
-
-						break;
+					*/
 
 					default: // 'Otras' páginas y Sub-páginas.
 

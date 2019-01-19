@@ -34,18 +34,17 @@
 ?>
 
 <header class="hero" id="<?php echo $home_page? $home_page->post_name : 'top' // 'top' puede ser reemplazado. ?>">
-
 	<?php
 
 		// Inserta opciones en el Slider de 'inicio':
 		if( SLIDER_AUTOPLAY )
 			$slider_autoplay = '"autoPlay": ' . SLIDER_AUTOPLAY_TIME;
 
-		$slider_options = "{ $slider_autoplay }";
+		$slider_options = "{ $slider_autoplay, \"pauseAutoPlayOnHover\": false }";
 
 	?>
 
-	<div class="carousel js-flickity" data-flickity-options='<?php echo $slider_options ?>'>
+	<div class="carousel" data-flickity-options='<?php echo $slider_options ?>'>
 		<?php
 
 			// Si no existe página 'inicio' creada mostramos slider por defecto.
@@ -88,6 +87,15 @@
 			$scrolldown_slug = ''; // slug vacío
 
 	?>
+
+	<div class="social">
+
+		<ul>
+			<li> <a href="https://www.linkedin.com/company/katari-consultores/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a> </li>
+			<!-- <li> <a href="#" target="_blank"><i class="fab fa-tumblr"></i></a> </li> -->
+		</ul>
+
+	</div>
 
 	<div class="mouse-container">
 		<a href="#<?php echo $scrolldown_slug ?>">

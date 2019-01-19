@@ -6,11 +6,25 @@
 	$nav_menu = get_nav_menu_locations(); // array() de menús
 	$menuItems = wp_get_nav_menu_items( $nav_menu[MAIN_MENU] ); // menu-principal
 
+	/* 	Obtenemos página de inicio mediante metadata referente a página de inicio. [0]: primer elemento del resultado.
+		Página de 'inicio' es el header (slider).
+	*/
+	$home_page = get_posts(array(
+		'meta_key'		=> TYPE_METADATA_KEY,
+		'meta_value'	=> TYPE['inicio'],
+		'post_type'		=> 'page'
+	))[0];
+
 ?>
 
 	<!-- SECCIÓN: Footer -->	
 		<?php include_once(ROOT . 'components/footer.php') // Incluímos el footer como componente. ?>
 	<!-- FIN Footer -->
+
+	<!-- Google Maps -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACK9T5e-fv0vPjXH_2XhhuWwHNs5gEoNc"
+  type="text/javascript"></script>
+  <!-- end Google Maps -->
 
 
 	<!-- JS from CDN -->
@@ -28,6 +42,8 @@
 	<!-- JS Locals -->
 	<script src="<?php echo get_template_directory_uri() ?>/js/scripts.js"></script>
 	<!-- end JS Locals -->
+
+	<?php wp_footer() ?>
 
 
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID and uncomment -->

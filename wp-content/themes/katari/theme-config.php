@@ -22,12 +22,14 @@ const TYPE_METADATA_KEY = 'tipo';
 const MAIN_MENU = "menu-principal";
 // Muestra dirección a imágen por defecto de slider dentro de la carpeta /img en tema.
 const DEFAULT_IMG_SLIDER = 'slider-default.jpg';
+// Define nombre campo para tipo de fondo.
+const BG_METADATA_KEY = 'fondo';
 // Debe estar siempre en FALSE.
 const DEBUG_MODE = FALSE;
 // Muestra u oculta sub-páginas del menú.
 const SHOW_SUBPAGES = FALSE;
 // Muestra u oculta sub-menús en el menú principal.
-const SHOW_SUBMENUS = TRUE;
+const SHOW_SUBMENUS = FALSE;
 // Determina si Slider cambia automáticamente de imágen.
 const SLIDER_AUTOPLAY = TRUE;
 // Determina en cuánto tiempo cambia la imágen del Slider.
